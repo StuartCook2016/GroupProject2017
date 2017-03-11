@@ -158,11 +158,7 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
             </div>
         </div>
     </div>
-
-<?php
-	  }
-	}
-?>	    
+   
 
 
         <script src="js/jquery.min.js"></script>

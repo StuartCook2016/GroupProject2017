@@ -44,7 +44,7 @@
                         <div class="header">
                             <div class="header-logo">
                             <!--log user out-->
-                                <button type="submit">Logout</button>
+                                <a href = "projectLogin.html">Logout</a>
                             </div>
                         </div>
                     </div>

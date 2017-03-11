@@ -11,14 +11,14 @@
 <?php
 session_start();
 
-$username = $_SESSION["username"];
+$_SESSION["username"];
 
-//$username=$_POST['username'];
-$firstName=$_POST['firstName'];
-$lastName=$_POST['lastName'];
-$emailAddress=$_POST['emailAddress'];
-$currentLocation=$_POST['country'];
-$contactNumber=$_POST['contactNumber'];
+$username=$_POST['username'];
+$firstName=$_POST['fname'];
+$lastName=$_POST['lname'];
+$emailAddress=$_POST['e-mail'];
+$country=$_POST['clocation'];
+$contactNumber=$_POST['cnumber'];
 
 $con=mysqli_connect("localhost","jrg2","password","jrg2");
       // Check connection
@@ -28,7 +28,7 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
    }
 
 # Run the query, store result in a string and store number of rows returned 
-	 $result= mysqli_query($con,"UPDATE employee SET firstName = '$firstName', lastName = '$lastName', emailAddress = '$emailAddress', contactNumber = '$contactNumber', country = '$currentLocation' WHERE username = '$username'") or die("Error: ".mysqli_error($con));
+	 $result= mysqli_query($con,"UPDATE employee SET firstName = '$fname', lastName = '$lname', emailAddress = '$e-mail', contactNumber = '$cnumber', country = '$location' WHERE username = '$username'") or die("Error: ".mysqli_error($con));
      
 		    // Return the number of rows in result set
   $rowcount=mysqli_num_rows($result);

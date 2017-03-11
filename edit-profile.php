@@ -82,7 +82,7 @@
 													 <div class="users-profiles">
                                                         <div class="single-users-profile">
                                                             <label for="lname">Last Name:</label>
-                                                            <input class="lnames" id="lname" name="lost-name" type="text">
+                                                            <input class="lnames" id="lname" name="last-name" type="text">
                                                         </div>
                                                         <div class="single-users-profile">
                                                             <label for="e-mail">Email Address:</label>
@@ -118,15 +118,11 @@
                                                     </div>
                                                     <div class="two-button">
                                                         <div class="submit-change">
-                                                            <div class="return-button">
                                                             <!--this is for submitting the changes -->
-															<input type="hidden" id="username" name="username" value = "">
-															<script>
-															var username = localStorage.getItem("username");
-															document.getElementById('username').value = username;
-															</script>
+												
+													
                                                             <input type="submit" name ="Submit" value ="Submit Changes">
-                                                            </div>
+                                                        
                                                         </div>
 														</form>
                                                         <div class="return-employee">
