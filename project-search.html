@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Project Search</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/default.css" type="text/css">
+        <link href="style.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet"> 
+
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="main-header clearfix">
+                    <div class="col-md-5 col-sm-5">
+                        <div class="header">
+                            <div class="header-logo">
+                                <img src="img/logo.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                        <div class="header">
+                            <div class="header-logo">
+                                <h1>Project Search</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="header">
+                            <div class="header-logo">
+                            <!--log user out-->
+                                <button type="submit">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="employee-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="main-employee-menu clearfix">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="employee-menu">
+                              <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#employee-view" aria-controls="employee-view" role="tab" data-toggle="tab">Employee View</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" tab-pane active" id="employee-view">
+                                    <div class="col-md-3 col-sm-3">
+                                        <div class="left-search-area">
+                                            <form action="">
+                                                <div class="single-left-search">
+                                                <!-- search jot title-->
+                                                    <label for="jtitle">Job Title:</label>
+                                                    <select>
+                                                          <option value="volvo">N/A</option>
+                                                          <option value="saab">Saab</option>
+                                                          <option value="mercedes">Mercedes</option>
+                                                          <option value="audi">Audi</option>
+                                                    </select>
+                                                </div>
+                                                <!--job type is searched -combo box-->
+                                                <div class="single-left-search">
+                                                    <label for="jtype">Job Type:</label>
+                                                    <select>
+                                                          <option value="volvo">N/A</option>
+                                                          <option value="saab">Saab</option>
+                                                          <option value="mercedes">Mercedes</option>
+                                                          <option value="audi">Audi</option>
+                                                    </select>
+                                                </div>
+                                                <!--location is searched combo box-->
+                                                <div class="single-left-search">
+                                                    <label for="location">Location:</label>
+                                                    <select>
+                                                          <option value="volvo">Choose a location</option>
+                                                          <option value="saab">Saab</option>
+                                                          <option value="mercedes">Mercedes</option>
+                                                          <option value="audi">Audi</option>
+                                                    </select>
+                                                </div>
+                                                <!-- salary is searched combo box-->
+                                                <div class="single-left-search">
+                                                    <label for="location">Salary:</label>
+                                                    <select>
+                                                          <option value="volvo">N/A</option>
+                                                          <option value="saab">Saab</option>
+                                                          <option value="mercedes">Mercedes</option>
+                                                          <option value="audi">Audi</option>
+                                                    </select>
+                                                </div>
+                                                <!-- start and end date (both using jquery works as a calender picker at the moment )-->
+
+                                                 <div class="single-left-search">
+                                                            <label for="sdate">Start Date:</label>
+                                                            <input id="datepicker-example1" class="sdates" id="sdate" name="start-date" type="text">
+                                                        </div>
+
+
+                                                 <div class="single-left-search">
+                                                            <label for="edate">End Date:</label>
+                                                            <input id="datepicker-example2" class="edates" id="edate" name="end-date" type="text">
+                                                        </div>
+
+                                                <div class="search-button">
+                                                <!-- button returns the results of the search-->
+                                                    <button type="submit">Search</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        <div class="employee-menu-details price-hide">
+                                        <div class="single-employee-form none">
+                                            <form action="">
+                                                <table align="center">
+                                                    <tr>
+                                                        <th align="center">Job Title</th>
+                                                        <th>Job Type</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+                                                        <th>Location</th>
+                                                        <th>Salary</th>
+                                                        <th>View</th> <!--under this column is button to view the project-->
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="active">Software Developer</td>
+                                                        <td class="active">Part-Time</td>
+                                                        <td class="active">24/04/2016</td>
+                                                        <td class="active">06/10/2017</td>
+                                                        <td class="active">Edinburgh</td>
+                                                        <td class="active">&pound;34000</td>
+                                                        <td><button type="send">View Project</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Web Developer</td>
+                                                        <td>Full-Time</td>
+                                                        <td>30/08/2016</td>
+                                                        <td>12/05/2018</td>
+                                                        <td>London</td>
+                                                        <td>&pound;45000</td>
+                                                        <td><button type="send">View Project</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="active">Software Engineer</td>
+                                                        <td class="active">Part-Time</td>
+                                                        <td class="active">04/06/2017</td>
+                                                        <td class="active">25/07/2019</td>
+                                                        <td class="active">Berlin</td>
+                                                        <td class="active">&euro;50000</td>
+                                                        <td><button type="send">View Project</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Java Developer</td>
+                                                        <td>Part Time</td>
+                                                        <td>25/10/2014</td>
+                                                        <td>15/03/2016</td>
+                                                        <td>New York</td>
+                                                        <td>$27000</td>
+                                                        <td><button type="send">View Project</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="active">Database Administrator</td>
+                                                        <td class="active">Full-Time</td>
+                                                        <td class="active">18/09/15</td>
+                                                        <td class="active">28/04/2016</td>
+                                                        <td class="active">New York</td>
+                                                        <td class="active">$38000</td>
+                                                        <td><button type="send">View Project</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Front-end Developer</td>
+                                                        <td>Full-Time</td>
+                                                        <td>10/01/17</td>
+                                                        <td>24/01/2018</td>
+                                                        <td>Manchester</td>
+                                                        <td>&pound;45000</td>
+                                                        <td><button type="send">View Project</button></td>
+                                                    </tr>
+                                                </table>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="return-button main">
+                                        <a href="employee-menu.html">Return to Main Menu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+           <script type="text/javascript" src="js/zebra_datepicker.js"></script>
+        <script type="text/javascript" src="js/core.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
