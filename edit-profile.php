@@ -52,7 +52,33 @@
             </div>
         </div>
     </div>
+<?php
+session_start();
 
+$username = $_SESSION["username"];
+
+
+$con=mysqli_connect("localhost","jrg2","password","jrg2");
+      // Check connection
+ if (mysqli_connect_errno())
+   {
+   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+   }
+
+# Run the query, store result in a string and store number of rows returned 
+     $result= mysqli_query($con,"SELECT `firstName`, `lastName`, `emailAddress`, `contactNumber`,`country`,`additionalInfo` FROM employee WHERE username='$username'") or die("Error: ".mysqli_error($con));
+  
+     
+		    // Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+      if($rowcount !=0)
+	{
+	  while ($row = mysqli_fetch_assoc($result))
+		 
+	  if (mysqli_num_rows($result) != 0) {
+			
+	  
+?>
     <div class="employee-menu-area">
         <div class="container">
             <div class="row">
@@ -77,20 +103,20 @@
                                                     <!--able to edit all of these-->
                                                         <div class="single-users-profile">
                                                             <label for="fname">First Name:</label>
-                                                            <input class="fnames" id="fname" name="first-name" type="text">
+                                                            <input class="fnames" id="fname" name="first-name" type="text" value="<?php echo $row['firstName']?>">
                                                         </div>
 													 <div class="users-profiles">
                                                         <div class="single-users-profile">
                                                             <label for="lname">Last Name:</label>
-                                                            <input class="lnames" id="lname" name="last-name" type="text">
+                                                            <input class="lnames" id="lname" name="last-name" type="text" value="<?php echo $row['lastName']?>">
                                                         </div>
                                                         <div class="single-users-profile">
                                                             <label for="e-mail">Email Address:</label>
-                                                            <input class="emails" id="e-mail" name="email-address" type="text">
+                                                            <input class="emails" id="e-mail" name="email-address" type="text" value="<?php echo $row['emailAddress']?>">
                                                         </div>
                                                         <div class="single-users-profile">
                                                             <label for="clocation">Current Location:</label>
-                                                            <input class="locations" id="clocation" name="location" type="text">
+                                                            <input class="locations" id="clocation" name="location" type="text" value="<?php echo $row['country']?>">
                                                         </div>
                                                         <div class="user-radio-button">
                                                             <label for="wrlocate">Willing to relocte</label>
@@ -101,7 +127,7 @@
 
                                                         <div class="single-users-profile">
                                                             <label for="cnumber">Contact Number:</label>
-                                                            <input class="cnumbers" id="cnumber" name="contact-number" type="text">
+                                                            <input class="cnumbers" id="cnumber" name="contact-number" type="text" value="<?php echo $row['contactNumber']?>">
                                                         </div>
                                                         <div class="single-users-profile">
                                                             <label for="plocation">Preferred Location:</label>
@@ -114,13 +140,12 @@
                                                     <!--text areas-->
                                                         <textarea class="uskill" id="skills" name="skill" placeholder="Skills"></textarea>
                                                         <textarea class="pprojects" id="pproject" name="past-project" placeholder="Past Projects"></textarea>
-                                                        <textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton" placeholder="Additional-Informaiton"></textarea>
+                                                        <textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton"><?php echo $row['additionalInfo']?></textarea>
                                                     </div>
                                                     <div class="two-button">
                                                         <div class="submit-change">
                                                             <!--this is for submitting the changes -->
-												
-													
+
                                                             <input type="submit" name ="Submit" value ="Submit Changes">
                                                         
                                                         </div>
@@ -143,9 +168,10 @@
             </div>
         </div>
     </div>
-
-        
-
+<?php
+	  }
+	}
+?>	
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
