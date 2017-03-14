@@ -118,7 +118,7 @@
 														<!-- -->
 														<!-- -->
 													</div>
-													<!-- start and end date (both using jquery works as a calender picker at the moment )-->
+													<!-- start and end date (both using jquery works as a calendar picker at the moment )-->
 													<div class="single-left-search">
 														<label for="sdate">Start Date:</label>
 														<input id="datepicker-example1" class="sdates" id="sdate" name="start-date" type="text">
@@ -162,7 +162,7 @@
 														
 														echo "<table align='center'>";
 															echo "<tr>";
-																echo "<th align='center'>Job Title</th>";
+																echo "<th>Job Title</th>";
 																echo "<th>Contract Type</th>";
 																echo "<th>Start Date</th>";
 																echo "<th>End Date</th>";
@@ -171,7 +171,7 @@
 																echo "<th>View</th>";
 															echo "</tr>";
 														
-															$rowCount = 0;
+															$rowCount = 1;
 															while($row = $result->fetch_assoc()) {
 																
 																echo "<tr>";
