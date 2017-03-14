@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +24,7 @@
         <![endif]-->
     </head>
     <body>
-
+	
     <div class="header-area">
         <div class="container">
             <div class="row">
@@ -119,7 +122,7 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
                                                             <input class="locations" id="clocation" name="location" type="text" value="<?php echo $row['country']?>">
                                                         </div>
                                                         <div class="user-radio-button">
-                                                            <label for="wrlocate">Willing to relocte</label>
+                                                            <label for="wrlocate">Willing to relocate</label>
                                                             <input type="radio" id="wrlocate" name="gender" value="yes" checked> Yes
                                                             <input type="radio" id="wrlocate" name="gender" value="no"> No
                                                         </div>
@@ -135,12 +138,64 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="user-profile-skrill">
+                                                <div class="user-profile-skill">
                                                     <div class="user-skill-details">
                                                     <!--text areas-->
-                                                        <textarea class="uskill" id="skills" name="skill" placeholder="Skills"></textarea>
-                                                        <textarea class="pprojects" id="pproject" name="past-project" placeholder="Past Projects"></textarea>
-                                                        <textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton"><?php echo $row['additionalInfo']?></textarea>
+                                                       
+														<label for="skill" >Skills:</label>
+														<select class="uskill" id="skill">
+															<option> Java </option>														
+															<option> C++ </option>
+															<option> HTML </option>
+															<option> Python </option>
+															<option> Microsoft Paint </option>
+															<option> Pokemon Master </option>
+														</select>
+														<select class="uskill" id="exp">
+															<option> 0 years  </option>
+															<option> 1 years  </option>														
+															<option> 2 years </option>
+															<option> 3 years </option>
+															<option> 4 years </option>
+															<option> 5 years </option>
+															<option> 6 years </option>
+															<option> 7 years </option>
+															<option> 8 years </option>
+															<option> 9 years </option>
+															<option> 10+ years </option>
+														</select>
+														
+														<input type="button" id="myCheck" onclick="addSkill();" value="Click to add Skill"></input>
+														<br>
+														<textarea class="uskill" name="addedskill" id="addedskill" placeholder="Skills" style="resize: none;" readonly ></textarea>
+														
+														<script>
+														
+
+														function addSkill(){
+														var skill = document.getElementById('skill').value;
+														var exp = document.getElementById('exp').value;
+														var old = ",\n" + document.getElementById('addedskill').value;
+													
+										
+														
+														document.getElementById("addedskill").innerHTML = skill + "," + exp + " " + "experience" + " " + old;
+														
+														};
+														
+														</script>
+														
+														
+														
+														
+														
+														
+														
+														
+														
+														<br>
+                                                        <textarea class="pprojects" id="pproject" name="past-project" placeholder="Past Projects"style="resize: none;"></textarea>
+                                                        <textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton" style="resize: none;"><?php echo $row['additionalInfo']?></textarea>
                                                     </div>
                                                     <div class="two-button">
                                                         <div class="submit-change">
@@ -150,6 +205,7 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
                                                         
                                                         </div>
 														</form>
+														
                                                         <div class="return-employee">
                                                             <div class="return-button">
                                                                 <a href="employee-menu.html">Return to Employee Menu</a>

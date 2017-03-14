@@ -103,17 +103,17 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
                                                     <!-- areas to have name of employee-->
                                                         <div class="single-users-profile">
                                                             <label for="fname">First Name:</label>
-                                                            <input class="fnames form-control" id="fname" name="first-name" type="text" value="<?php echo $row['firstName']?>">
+                                                            <input class="fnames form-control" id="fname" name="first-name" type="text" value="<?php echo $row['firstName']?>" readonly>
                                                         </div>
 														<div class="users-profiles">
                                                         <div class="single-users-profile">
                                                             <label for="lname">Last Name:</label>
-                                                            <input class="lnames form-control" id="lname" name="last-name" type="text" value="<?php echo $row['lastName']?>">
+                                                            <input class="lnames form-control" id="lname" name="last-name" type="text"  value="<?php echo $row['lastName']?>">
                                                         </div>
                                                         <!--email-->
                                                         <div class="single-users-profile">
                                                             <label for="e-mail">Email Address:</label>
-                                                            <input class="emails form-control" id="e-mail" name="email-address" type="text" value="<?php echo $row['emailAddress']?>">
+                                                            <input class="emails form-control" id="e-mail" name="email-address" type="text" value="<?php echo $row['emailAddress']?>" >
                                                         </div>
 
                                                     </div>
@@ -136,15 +136,15 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
                                                 <div class="user-profile-skrill">
                                                     <div class="user-skill-details">
                                                     <!-- area to be populated by skills-->
-                                                        <textarea class="uskill" id="skills" name="skill" placeholder="Skills"></textarea>
+                                                        <textarea class="uskill" name="skill" placeholder="Skills"  disabled></textarea>
                                                         <!--past projects-->
-                                                        <textarea class="pprojects" id="pproject" name="past-project" placeholder="Past Projects"></textarea>
+                                                        <textarea class="pprojects" name="pastProject" placeholder="Past Projects"  disabled></textarea>
                                                         <!--additional info-->
 
-                                                        <textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton" ></textarea>
+                                                        <textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton"  disabled ><?php echo $row['additionalInfo']?></textarea>
                                                     </div>
                                                     <div class="return-button">
-                                                        <a href="employee-menu.html">Return to Main Menu</a>
+                                                        <a href="employeeMenu.php">Return to Main Menu</a>
                                                     </div>
                                                 </div>
                                             </form>
@@ -158,7 +158,11 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
             </div>
         </div>
     </div>
-   
+
+<?php
+	  }
+	}
+?>	    
 
 
         <script src="js/jquery.min.js"></script>
