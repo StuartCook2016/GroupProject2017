@@ -69,78 +69,64 @@
 
 								<!-- Tab panes -->
 								<div class="tab-content">
-									<div role="tabpanel" tab-pane active" id="employee-view">
-										<div class="col-md-3 col-sm-3">
-											<div class="left-search-area">
-												<form action="">
-													<div class="single-left-search">
-														<!-- search job title-->
-														<label for="jobTitle">Job Title:</label>
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<!-- This needs to be filled from Database with all Job Titles -->
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<select>
-														</select>
-													</div>
-													<!--Contract Type is searched combo box-->
-													<div class="single-left-search">
-														<label for="contractType">Contract Type:</label>
-														<select>
-															  <option value="Full-Time">Full-Time</option>
-															  <option value="Part-Time">Part-Time</option>
-														</select>
-													</div>
-													<!--location is searched combo box-->
-													<div class="single-left-search">
-														<label for="location">Location:</label>
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<!-- This needs to be filled from Database -->
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<select>
-														</select>
-													</div>
-													<!-- salary is searched combo box-->
-													<div class="single-left-search">
-														<label for="location">Salary:</label>
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<!-- This needs to be two input boxes and calculate database entries inside range -->
-														<!-- Or can do the idea Stuart mentioned-->
-														<!-- -->
-														<!-- -->
-													</div>
-													<!-- start and end date (both using jquery works as a calendar picker at the moment )-->
-													<div class="single-left-search">
-														<label for="sdate">Start Date:</label>
-														<input id="datepicker-example1" class="sdates" id="sdate" name="start-date" type="text">
-													</div>
+									<?php
+										echo "<div role='tabpanel' tab-pane active id='employee-view'>";
+											echo "<div class='col-md-3 col-sm-3'>";
+												echo "<div class='left-search-area'>";
+													echo "<form action=''>";
+														echo "<div class='single-left-search'>";
+															//search job title
+															echo "<label for='jobTitle'>Job Title:</label>";
+															
+															//This needs to be filled from Database with all Job Titles
+															
+															echo "<select>";
+															echo "</select>";
+														echo "</div>";
+														//Contract Type is searched combo box
+														echo "<div class='single-left-search'>";
+															echo"<label for='contractType'>Contract Type:</label>";
+															echo "<select>";
+																  echo "<option value='Full-Time'>Full-Time</option>";
+																  echo "<option value='Part-Time'>Part-Time</option>";
+															echo "</select>";
+														echo "</div>";
+														//location is searched combo box
+														//Need to rethink this
+														echo "<div class='single-left-search'>";
+															echo "<label for='location'>Location:</label>";
+															//Fill this from database
+															//<select>
+															//</select>
+														echo "</div>";
+														//salary is searched combo box
+														echo "<div class='single-left-search'>";
+															"<label for='location'>Salary:</label>";
+															/*
+															This needs to be two input boxes and calculate database entries inside range
+															Or can do the idea Stuart mentioned
+															*/
+														echo "</div>";
+														//start and end date (both using jquery works as a calendar picker at the moment )
+														echo "<div class='single-left-search'>";
+															echo "<label for='sdate'>Start Date:</label>";
+															echo "<input id='datepicker-example1' class='sdates' id='sdate' name='start-date' type='text'>";
+														echo "</div>";
+														echo "<div class='single-left-search'>";
+															echo "<label for='edate'>End Date:</label>";
+															echo "<input id='datepicker-example2' class='edates' id='edate' name='end-date' type='text'>";
+														echo "</div>";
 
-
-													<div class="single-left-search">
-														<label for="edate">End Date:</label>
-														<input id="datepicker-example2" class="edates" id="edate" name="end-date" type="text">
-													</div>
-
-													<div class="search-button">
-														<!-- button returns the results of the search-->
-														<input type="submit" value="Search"></button>
-													</div>
-												</form>
-											</div>
-										</div>
-										<div class="col-md-9 col-sm-9">
-											<div class="employee-menu-details price-hide">
-											<div class="single-employee-form none">
-												<?php
+														echo "<div class='search-button'>";
+															//button returns the results of the search
+															echo "<input type='submit' value='Search'></button>";
+														echo "</div>";
+													echo "</form>";
+												echo "</div>";
+											echo "</div>";
+											echo "<div class='col-md-9 col-sm-9'>";
+												echo "<div class='employee-menu-details price-hide'>";
+												echo "<div class='single-employee-form none'>";
 													
 													$servername = "localhost";
 													$username = "root";
@@ -198,14 +184,15 @@
 													} else {
 														echo "There were no projects that matched your search. </br>";
 													}
-												?>
-											</div>
-										</div>
-										</div>
-										<div class="return-button main">
-											<a href="employee-menu.html">Return to Main Menu</a>
-										</div>
-									</div>
+													
+												echo "</div>";
+											echo "</div>";
+											echo "</div>";
+											echo "<div class='return-button main'>";
+												echo "<a href='employee-menu.html'>Return to Main Menu</a>";
+											echo "</div>";
+										echo "</div>";
+									?>
 								</div>
 							</div>
 						</div>
