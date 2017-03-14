@@ -126,67 +126,54 @@
 											echo "</div>";
 											echo "<div class='col-md-9 col-sm-9'>";
 												echo "<div class='employee-menu-details price-hide'>";
-												echo "<div class='single-employee-form none'>";
-													
-													$servername = "localhost";
-													$username = "root";
-													$password = "root";
-													$database = "jrg2";
-													
-													$conn = new mysqli($servername, $username, $password, $database);
-													
-													//Check connection
-													if($conn->connect_error) {
-														die("Connection to MySQL failed %s </br>" . $conn->connect_error);
-													}
-													
-													$sql = "SELECT * FROM job";
-													$result = $conn->query($sql);
-													
-													//if there are results
-													if($result->num_rows > 0) {
-														
-														echo "<table align='center'>";
-															echo "<tr>";
-																echo "<th>Job Title</th>";
-																echo "<th>Contract Type</th>";
-																echo "<th>Start Date</th>";
-																echo "<th>End Date</th>";
-																echo "<th>Location</th>";
-																echo "<th>Salary</th>";
-																echo "<th>View</th>";
-															echo "</tr>";
-														
-															$rowCount = 1;
-															while($row = $result->fetch_assoc()) {
+													echo "<div class='single-employee-form none'>";
 																
+														$sql = "SELECT * FROM job";
+														$result = $conn->query($sql);
+														
+														//if there are results
+														if($result->num_rows > 0) {
+															
+															echo "<table align='center'>";
 																echo "<tr>";
-																	echo "<td>" . $row['title'] . "</td>";
-																	echo "<td>" . $row['contractType'] . "</td>"; 
-																	echo "<td>" . $row['startDate'] . "</td>";
-																	echo "<td>" . $row['endDate'] . "</td>";
-																	echo "<td></td>"; //To echo location once developed
-																	echo "<td>" . $row['salary'] . "</td>";
-																	
-																	echo "<td>";
-																		echo "<form action='view-job.php' method='post'>";
-																			echo "<input type='hidden' name='jobID' value='" . $rowCount . "'>";
-																			echo "<input type='submit' value='View'>";
-																		echo "</form>";
-																	echo "</td>";
+																	echo "<th>Job Title</th>";
+																	echo "<th>Contract Type</th>";
+																	echo "<th>Start Date</th>";
+																	echo "<th>End Date</th>";
+																	echo "<th>Location</th>";
+																	echo "<th>Salary</th>";
+																	echo "<th>View</th>";
 																echo "</tr>";
-																
-																$rowCount++;
-															}
+															
+																$rowCount = 1;
+																while($row = $result->fetch_assoc()) {
+																	
+																	echo "<tr>";
+																		echo "<td>" . $row['title'] . "</td>";
+																		echo "<td>" . $row['contractType'] . "</td>"; 
+																		echo "<td>" . $row['startDate'] . "</td>";
+																		echo "<td>" . $row['endDate'] . "</td>";
+																		echo "<td></td>"; //To echo location once developed
+																		echo "<td>" . $row['salary'] . "</td>";
+																		
+																		echo "<td>";
+																			echo "<form action='view-job.php' method='post'>";
+																				echo "<input type='hidden' name='jobID' value='" . $rowCount . "'>";
+																				echo "<input type='submit' value='View'>";
+																			echo "</form>";
+																		echo "</td>";
+																	echo "</tr>";
+																	
+																	$rowCount++;
+																}
+															
+															echo "</table>";
 														
-														echo "</table>";
-													
-													} else {
-														echo "There were no projects that matched your search. </br>";
-													}
-													
+														} else {
+															echo "There were no projects that matched your search. </br>";
+														}												
+													echo "</div>";
 												echo "</div>";
-											echo "</div>";
 											echo "</div>";
 											echo "<div class='return-button main'>";
 												echo "<a href='employee-menu.html'>Return to Main Menu</a>";
