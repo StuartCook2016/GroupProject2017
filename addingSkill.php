@@ -32,5 +32,6 @@ catch(PDOException $e)
     {
     echo $sql . "<br>" . $e->getMessage();
     }
+	// Returns the user to the edit profile screen
 	echo"<script>location.href='http://localhost/Group%20test/edit-profile.php'</script>";
 ?>
