@@ -138,62 +138,7 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="user-profile-skill">
-                                                    <div class="user-skill-details">
-                                                    <!--text areas-->
-                                                       
-														<label for="skill" >Skills:</label>
-														<select class="uskill" id="skill">
-															<option> Java </option>														
-															<option> C++ </option>
-															<option> HTML </option>
-															<option> Python </option>
-															<option> Microsoft Paint </option>
-															<option> Pokemon Master </option>
-														</select>
-														<select class="uskill" id="exp">
-															<option> 0 years  </option>
-															<option> 1 years  </option>														
-															<option> 2 years </option>
-															<option> 3 years </option>
-															<option> 4 years </option>
-															<option> 5 years </option>
-															<option> 6 years </option>
-															<option> 7 years </option>
-															<option> 8 years </option>
-															<option> 9 years </option>
-															<option> 10+ years </option>
-														</select>
-														
-														<input type="button" id="myCheck" onclick="addSkill();" value="Click to add Skill"></input>
-														<br>
-														<textarea class="uskill" name="addedskill" id="addedskill" placeholder="Skills" style="resize: none;" readonly ></textarea>
-														
-														<script>
-														
-
-														function addSkill(){
-														var skill = document.getElementById('skill').value;
-														var exp = document.getElementById('exp').value;
-														var old = ",\n" + document.getElementById('addedskill').value;
-													
-										
-														
-														document.getElementById("addedskill").innerHTML = skill + "," + exp + " " + "experience" + " " + old;
-														
-														};
-														
-														</script>
-														
-														
-														
-														
-														
-														
-														
-														
-														
-														<br>
+                   
                                                         <textarea class="pprojects" id="pproject" name="past-project" placeholder="Past Projects"style="resize: none;"></textarea>
                                                         <textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton" style="resize: none;"><?php echo $row['additionalInfo']?></textarea>
                                                     </div>
@@ -205,7 +150,58 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
                                                         
                                                         </div>
 														</form>
+														<form name = "frm6" method = "post" action = "addingSkill.php">
+												<div class="user-profile-skill">
+                                                    <div class="user-skill-details">
+                                                    <!--text areas-->
+                                                       
+														<label for="skill" >Skills:</label>
+														<select class="uskill" id="skill" name="skillName">
+															<option> Android Development </option>														
+															<option> C# Programmer </option>
+															<option> Client-side Programming </option>
+															<option> Java Developer </option>
+															<option> PHP </option>
+															<option> Sever-side Programming </option>
+															<option> Software Engineering </option>
+															<option> SQL </option>
+															<option> Web Design </option>
+															<option> Web Development </option>
+														</select>
+														<select class="uskill" id="exp" name="yearsExp">
+															<option> 0   </option>
+															<option> 1   </option>														
+															<option> 2   </option>
+															<option> 3   </option>
+															<option> 4   </option>
+															<option> 5   </option>
+															<option> 6   </option>
+															<option> 7   </option>
+															<option> 8   </option>
+															<option> 9   </option>
+															<option> 10+ </option>
+														</select>
 														
+														<input type="submit" id="myCheck" onclick="addSkill();" value="Click to add Skill"></input>
+														<br>
+														<textarea class="uskill" name="addedskill" id="addedskill" placeholder="Skills" style="resize: none;" readonly ></textarea>
+														
+														<script>
+														
+
+														function addSkill(){
+														var skill = document.getElementById('skill').value;
+														var exp = document.getElementById('exp').value;
+														var old = ",\n" + document.getElementById('addedskill').value;
+											
+														document.getElementById("addedskill").innerHTML = skill + "," + exp + " " + "experience" + " " + old;
+														
+														};
+														
+														</script>
+								
+														<br>
+														</form>
                                                         <div class="return-employee">
                                                             <div class="return-button">
                                                                 <a href="employee-menu.html">Return to Employee Menu</a>
@@ -227,6 +223,7 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
 <?php
 	  }
 	}
+
 ?>	
 
         <script src="js/jquery.min.js"></script>
