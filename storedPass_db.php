@@ -22,10 +22,7 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
 		echo("Result set has $rowcount rows<br>");
 	  while ($row = mysqli_fetch_assoc($result))
 	{
-
-	
-
-
+		
 		$level=$row["position"];
 			//echo $level;
  
