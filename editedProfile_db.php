@@ -20,6 +20,7 @@ $contactNumber=$_POST['contact-number'];
 $additionalInfo=$_POST['additional-informaiton'];
 
 
+
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
