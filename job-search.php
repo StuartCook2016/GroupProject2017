@@ -289,7 +289,7 @@
 																	echo "<th>View</th>";
 																echo "</tr>";
 															
-																$rowCount = 1;
+																
 																while($row = $result->fetch_assoc()) {
 																	
 																	echo "<tr>";
@@ -302,13 +302,11 @@
 																		
 																		echo "<td>";
 																			echo "<form action='view-job.php' method='post'>";
-																				echo "<input type='hidden' name='jobID' value='" . $rowCount . "'>";
+																				echo "<input type='hidden' name='jobID' value='" . $row['jobID'] . "'>";
 																				echo "<input type='submit' value='View'>";
 																			echo "</form>";
 																		echo "</td>";
-																	echo "</tr>";
-																	
-																	$rowCount++;
+																	echo "</tr>";																
 																}
 															
 															echo "</table>";
