@@ -69,143 +69,260 @@
 
 								<!-- Tab panes -->
 								<div class="tab-content">
-									<div role="tabpanel" tab-pane active" id="employee-view">
-										<div class="col-md-3 col-sm-3">
-											<div class="left-search-area">
-												<form action="">
-													<div class="single-left-search">
-														<!-- search job title-->
-														<label for="jobTitle">Job Title:</label>
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<!-- This needs to be filled from Database with all Job Titles -->
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<select>
-														</select>
-													</div>
-													<!--Contract Type is searched combo box-->
-													<div class="single-left-search">
-														<label for="contractType">Contract Type:</label>
-														<select>
-															  <option value="Full-Time">Full-Time</option>
-															  <option value="Part-Time">Part-Time</option>
-														</select>
-													</div>
-													<!--location is searched combo box-->
-													<div class="single-left-search">
-														<label for="location">Location:</label>
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<!-- This needs to be filled from Database -->
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<select>
-														</select>
-													</div>
-													<!-- salary is searched combo box-->
-													<div class="single-left-search">
-														<label for="location">Salary:</label>
-														<!-- -->
-														<!-- -->
-														<!-- -->
-														<!-- This needs to be two input boxes and calculate database entries inside range -->
-														<!-- Or can do the idea Stuart mentioned-->
-														<!-- -->
-														<!-- -->
-													</div>
-													<!-- start and end date (both using jquery works as a calendar picker at the moment )-->
-													<div class="single-left-search">
-														<label for="sdate">Start Date:</label>
-														<input id="datepicker-example1" class="sdates" id="sdate" name="start-date" type="text">
-													</div>
-
-
-													<div class="single-left-search">
-														<label for="edate">End Date:</label>
-														<input id="datepicker-example2" class="edates" id="edate" name="end-date" type="text">
-													</div>
-
-													<div class="search-button">
-														<!-- button returns the results of the search-->
-														<input type="submit" value="Search"></button>
-													</div>
-												</form>
-											</div>
-										</div>
-										<div class="col-md-9 col-sm-9">
-											<div class="employee-menu-details price-hide">
-											<div class="single-employee-form none">
-												<?php
+									<?php
+									
+										$servername = "localhost";
+										$username = "root";
+										$password = "root";
+										$database = "jrg2";
 													
-													$servername = "localhost";
-													$username = "root";
-													$password = "root";
-													$database = "jrg2";
+										$conn = new mysqli($servername, $username, $password, $database);
 													
-													$conn = new mysqli($servername, $username, $password, $database);
-													
-													//Check connection
-													if($conn->connect_error) {
-														die("Connection to MySQL failed %s </br>" . $conn->connect_error);
-													}
-													
-													$sql = "SELECT * FROM job";
-													$result = $conn->query($sql);
-													
-													//if there are results
-													if($result->num_rows > 0) {
-														
-														echo "<table align='center'>";
-															echo "<tr>";
-																echo "<th>Job Title</th>";
-																echo "<th>Contract Type</th>";
-																echo "<th>Start Date</th>";
-																echo "<th>End Date</th>";
-																echo "<th>Location</th>";
-																echo "<th>Salary</th>";
-																echo "<th>View</th>";
-															echo "</tr>";
-														
-															$rowCount = 1;
-															while($row = $result->fetch_assoc()) {
+										//Check connection
+										if($conn->connect_error) {
+											die("Connection to MySQL failed %s </br>" . $conn->connect_error);
+										}
+									
+										echo "<div role='tabpanel' tab-pane active id='employee-view'>";
+											echo "<div class='col-md-3 col-sm-3'>";
+												echo "<div class='left-search-area'>";
+													echo "<form action='job-search.php' method='post'>";
+														echo "<div class='single-left-search'>";
+															//search job title
+															echo "<label for='jobTitle'>Job Title:</label>";
+															
+															$sql = "SELECT DISTINCT title FROM job ORDER BY title";
+															$result = $conn->query($sql);
+															
+															if($result->num_rows > 0) {
+															
+																echo "<select id='jobTitle' name='jobTitle'>";
 																
-																echo "<tr>";
-																	echo "<td>" . $row['title'] . "</td>";
-																	echo "<td>" . $row['contractType'] . "</td>"; 
-																	echo "<td>" . $row['startDate'] . "</td>";
-																	echo "<td>" . $row['endDate'] . "</td>";
-																	echo "<td></td>"; //To echo location once developed
-																	echo "<td>" . $row['salary'] . "</td>";
-																	
-																	echo "<td>";
-																		echo "<form action='view-job.php' method='post'>";
-																			echo "<input type='hidden' name='jobID' value='" . $rowCount . "'>";
-																			echo "<input type='submit' value='View'>";
-																		echo "</form>";
-																	echo "</td>";
-																echo "</tr>";
+																//Add Any as option so user does not have to choose 
+																//specific title
+																echo "<option>Any</option>";
 																
-																$rowCount++;
+																//Add each job title as an option
+																while($row = $result->fetch_assoc()) {
+																	echo "<option>" . $row['title'] . "</option>";
+																}
+																
+																echo "</select>";
 															}
 														
-														echo "</table>";
-													
-													} else {
-														echo "There were no projects that matched your search. </br>";
-													}
-												?>
-											</div>
-										</div>
-										</div>
-										<div class="return-button main">
-											<a href="employee-menu.html">Return to Main Menu</a>
-										</div>
-									</div>
+														echo "</div>";
+														
+														echo "<div class='single-left-search'>";
+															//Contract Type is searched combo box
+															echo"<label for='contractType'>Contract Type:</label>";
+															
+															$sql = "SELECT DISTINCT contractType FROM job";
+															$result = $conn->query($sql);
+															
+															if($result->num_rows > 0) {
+															
+																echo "<select id='contractType' name='contractType'>";
+																
+																//Add Any as option so user does not have to choose 
+																//specific contract type
+																echo "<option>Any</option>";
+																
+																//Add each job title as an option
+																while($row = $result->fetch_assoc()) {
+																	echo "<option>" . $row['contractType'] . "</option>";
+																}
+																
+																echo "</select>";
+															}
+										
+														echo "</div>";
+														//location is searched combo box
+														//Need to rethink this
+														echo "<div class='single-left-search'>";
+															echo "<label for='location'>Location:</label>";
+															//Fill this from database
+															//<select id='location'>
+															
+																//Add Any as option so user does not have to choose 
+																//specific location
+																//echo "<option>Any</option>";
+																
+															//</select>
+														echo "</div>";
+														
+														echo "<div class='single-left-search'>";
+															//salary is searched combo box
+																													
+															$min = "SELECT salary FROM job ORDER BY salary ASC LIMIT 1";
+															$resultMin = $conn->query($min);
+															
+															$max = "SELECT salary FROM job ORDER BY salary DESC LIMIT 1";
+															$resultMax = $conn->query($max);
+															
+															if($resultMin->num_rows > 0 && $resultMax->num_rows > 0){
+															
+																$row = $resultMin->fetch_assoc();													
+																//set min salary to min in db
+																echo "<label for='minSalary'>Min Salary:</label>";
+																echo "<input id='minSalary' name='minSalary' step='1000' type='number'
+																	value='" . $row['salary'] . "' min='" . $row['salary'] . "'>";
+																
+																$row = $resultMax->fetch_assoc();																
+																//set max salary to max in db
+																echo "<label for='maxSalary'>Max Salary:</label>";
+																echo "<input id='maxSalary' name='maxSalary' step='1000' type='number'
+																	value='" . $row['salary'] . "' max='" . $row['salary'] . "'>";
+															}									
+														echo "</div>";
+																										
+														echo "<div class='single-left-search'>";
+														
+															$minDate = "SELECT startDate FROM job ORDER BY startDate ASC LIMIT 1";
+															$resultMin = $conn->query($minDate);
+															
+															$maxDate = "SELECT endDate FROM job ORDER BY endDate DESC LIMIT 1";
+															$resultMax = $conn->query($maxDate);
+															
+															if($resultMin->num_rows > 0 && $resultMax->num_rows > 0) {
+															 
+																$row = $resultMin->fetch_assoc();
+																//set start date to earliest in db
+																echo "<label>Between these dates</label></br>";
+																echo "<label for='datepicker-example1'>Start Date:</label>";
+																echo "<input id='datepicker-example1' class='sdates' name='start-date' type='text'
+																	value='" . $row['startDate'] . "'>";
+																
+																$row = $resultMax->fetch_assoc();
+																//set end date to latest in db
+																echo "<label for='datepicker-example2''>End Date:</label>";
+																echo "<input id='datepicker-example2' class='edates' name='end-date' type='text'
+																	value='" . $row['endDate'] . "'>";
+															}															
+														echo "</div>";	
+														
+														echo "<div class='search-button'>";
+															//button returns the results of the search
+															echo "<input type='submit' value='Search'></button>";
+														echo "</div>";
+													echo "</form>";
+												echo "</div>";
+											echo "</div>";
+											echo "<div class='col-md-9 col-sm-9'>";
+												echo "<div class='employee-menu-details price-hide'>";
+													echo "<div class='single-employee-form none'>";								
+														
+														//Used to store query used to display results
+														$sql = "";
+														
+														//Check if all required POST variables are set and not empty
+														if(isset($_POST['jobTitle']) && !empty($_POST['jobTitle']) &&
+															isset($_POST['contractType']) && !empty($_POST['contractType']) &&
+															isset($_POST['minSalary']) && !empty($_POST['minSalary']) &&
+															isset($_POST['maxSalary']) && !empty($_POST['maxSalary']) &&
+															isset($_POST['start-date']) && !empty($_POST['start-date']) &&
+															isset($_POST['end-date']) && !empty($_POST['end-date'])) {
+															//location check needs to be added to above condition
+														
+															$jobTitle = $_POST["jobTitle"];
+															$contractType = $_POST["contractType"];
+															$minSalary = $_POST["minSalary"];
+															$maxSalary = $_POST["maxSalary"];
+															$minDate = $_POST["start-date"];
+															$maxDate = $_POST["end-date"];															
+														
+															$sql = "SELECT * FROM job AS j WHERE";
+															
+															//Used to determine wether to add 'AND' to sql query
+															$appendCounter = 0;
+															//if the title specified is not any
+															if(strcasecmp($jobTitle, 'any') != 0) {
+															
+																//append section of query containing title
+																$sql = $sql . " j.title = '" . $jobTitle . "'";
+																$appendCounter++;
+															}
+															
+															//if the contract type specified is not any
+															if(strcasecmp($contractType, 'any') != 0) {
+															
+																if($appendCounter > 0) {
+																	//append section of query containing contractType
+																	$sql = $sql . " AND j.contractType = '" . $contractType . "'";
+																} else {
+																	$sql = $sql . " j.contractType = '" . $contractType . "'";
+																	$appendCounter++;
+																}																
+															}
+															
+															if($appendCounter > 0) {
+																//append section of query calculating salaries within range
+																$sql = $sql . " AND j.salary BETWEEN " . $minSalary . " AND " . $maxSalary;
+															} else {
+																//append section of query calculating salaries within range
+																$sql = $sql . " j.salary BETWEEN " . $minSalary . " AND " . $maxSalary;
+																$appendCounter++;
+															}
+															
+															//append section of query calculating if dates are within range
+															$sql = $sql . " AND j.startDate >= '" . $minDate . "'";
+															$sql = $sql . " AND j.endDate <= '" . $maxDate . "'";
+															
+														//The POST variables are not set
+														} else {
+															
+															$sql = "SELECT * FROM job";
+														}	
+														
+														$result = $conn->query($sql);
+														
+														//if there are results
+														if($result->num_rows > 0) {
+															
+															echo "<table align='center'>";
+																echo "<tr>";
+																	echo "<th>Job Title</th>";
+																	echo "<th>Contract Type</th>";
+																	echo "<th>Start Date</th>";
+																	echo "<th>End Date</th>";
+																	echo "<th>Location</th>";
+																	echo "<th>Salary</th>";
+																	echo "<th>View</th>";
+																echo "</tr>";
+															
+																$rowCount = 1;
+																while($row = $result->fetch_assoc()) {
+																	
+																	echo "<tr>";
+																		echo "<td>" . $row['title'] . "</td>";
+																		echo "<td>" . $row['contractType'] . "</td>"; 
+																		echo "<td>" . $row['startDate'] . "</td>";
+																		echo "<td>" . $row['endDate'] . "</td>";
+																		echo "<td></td>"; //To echo location once developed
+																		echo "<td>" . $row['salary'] . "</td>";
+																		
+																		echo "<td>";
+																			echo "<form action='view-job.php' method='post'>";
+																				echo "<input type='hidden' name='jobID' value='" . $rowCount . "'>";
+																				echo "<input type='submit' value='View'>";
+																			echo "</form>";
+																		echo "</td>";
+																	echo "</tr>";
+																	
+																	$rowCount++;
+																}
+															
+															echo "</table>";
+														} else {
+															echo "There were no projects that matched your search. </br>";
+														}
+													echo "</div>";
+												echo "</div>";
+											echo "</div>";
+											echo "<div class='return-button main'>";
+												echo "<a href='employeeMenu.php'>Return to Main Menu</a>";
+											echo "</div>";
+										echo "</div>";
+									?>
 								</div>
 							</div>
 						</div>
