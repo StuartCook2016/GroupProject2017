@@ -2,7 +2,7 @@
     
 
 $servername = "localhost";      //connections set up
-$username = "jrg2";
+$connUsername = "jrg2";
 $password = "password";
 $dbname = "jrg2";
 
@@ -22,7 +22,7 @@ $additionalInfo=$_POST['additional-informaiton'];
 
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $connUsername, $password);
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     

@@ -154,20 +154,25 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
 												<div class="user-profile-skill">
                                                     <div class="user-skill-details">
                                                     <!--text areas-->
-                                                       
-														<label for="skill" >Skills:</label>
-														<select class="uskill" id="skill" name="skillName">
-															<option> Android Development </option>														
-															<option> C# Programmer </option>
-															<option> Client-side Programming </option>
-															<option> Java Developer </option>
-															<option> PHP </option>
-															<option> Sever-side Programming </option>
-															<option> Software Engineering </option>
-															<option> SQL </option>
-															<option> Web Design </option>
-															<option> Web Development </option>
-														</select>
+                                                       												
+														<?php
+															$skills = "SELECT * FROM skills";														
+															$resultSkills = $con->query($skills);
+															
+															if($resultSkills->num_rows > 0) {
+															
+																echo "<label for='skill' >Skills:</label>";
+																echo "<select class='uskill' id='skill' name='skillName'>";
+																	
+																	while($row = $resultSkills->fetch_assoc()) {												
+																		echo "<option>" . $row['skillName'] . "</option>";																	
+																	}
+																
+																echo "</select>";
+															}
+														
+														?>
+														
 														<select class="uskill" id="exp" name="yearsExp">
 															<option> 0   </option>
 															<option> 1   </option>														
@@ -223,7 +228,6 @@ $con=mysqli_connect("localhost","jrg2","password","jrg2");
 <?php
 	  }
 	}
-
 ?>	
 
         <script src="js/jquery.min.js"></script>
