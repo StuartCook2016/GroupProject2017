@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Project Search</title>
+        <title>Job Search</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -22,7 +22,6 @@
         <![endif]-->
     </head>
     <body>
-
 		<div class="header-area">
 			<div class="container">
 				<div class="row">
@@ -72,8 +71,8 @@
 									<?php
 									
 										$servername = "localhost";
-										$username = "root";
-										$password = "root";
+										$username = "jrg2";
+										$password = "password";
 										$database = "jrg2";
 													
 										$conn = new mysqli($servername, $username, $password, $database);
@@ -83,7 +82,7 @@
 											die("Connection to MySQL failed %s </br>" . $conn->connect_error);
 										}
 									
-										echo "<div role='tabpanel' tab-pane active id='employee-view'>";
+										echo "<div role='tabpanel' id='employee-view'>";
 											echo "<div class='col-md-3 col-sm-3'>";
 												echo "<div class='left-search-area'>";
 													echo "<form action='job-search.php' method='post'>";
@@ -227,14 +226,14 @@
 														
 														echo "<div class='search-button'>";
 															//button returns the results of the search
-															echo "<input type='submit' value='Search'></button>";
+															echo "<input class='blueButton' type='submit' value='Search'>";
 														echo "</div>";
 													echo "</form>";
 												echo "</div>";
 											echo "</div>";
 											echo "<div class='col-md-9 col-sm-9'>";
-												echo "<div class='employee-menu-details price-hide'>";
-													echo "<div class='single-employee-form none'>";								
+												echo "<div class='employee-menu-details'>";
+													echo "<div class='single-employee-form'>";								
 														
 														//Used to store query used to display results
 														$sql = "";
@@ -305,9 +304,7 @@
 														} else {															
 															$sql = "SELECT * FROM job";
 														}	
-																												
-														echo $sql;
-														
+																											
 														$result = $conn->query($sql);
 														
 														//if there are results
@@ -338,21 +335,25 @@
 																		echo "<td>";
 																			echo "<form action='view-job.php' method='post'>";
 																				echo "<input type='hidden' name='jobID' value='" . $row['jobID'] . "'>";
-																				echo "<input type='submit' value='View'>";
+																				echo "<input class='blueButton' type='submit' value='View'>";
 																			echo "</form>";
 																		echo "</td>";
 																	echo "</tr>";																
 																}
 															
 															echo "</table>";
+															echo "</br>"; echo "</br>";
 														} else {
-															echo "There were no projects that matched your search. </br>";
+															echo "There were no projects that matched your search criteria. </br>";
 														}
 													echo "</div>";
 												echo "</div>";
 											echo "</div>";
-											echo "<div class='return-button main'>";
-												echo "<a href='employeeMenu.php'>Return to Main Menu</a>";
+											
+											echo "<div class='return-button'>";
+												echo "<a class='blueButton' href='employeeMenu.php'>Return to Main Menu</a>";
+												
+												
 											echo "</div>";
 										echo "</div>";
 									?>
@@ -369,5 +370,18 @@
         <script type="text/javascript" src="js/zebra_datepicker.js"></script>
         <script type="text/javascript" src="js/core.js"></script>
         <script src="js/main.js"></script>
+		
+		<!-- inline styling to links and buttons look the same as logout button -->
+		<style>
+			.blueButton { 
+				background: #085394 none repeat scroll 0 0;
+				border: 2px solid #000;
+				box-shadow: 3px 3px 0 -1px rgba(0, 0, 0, 1);
+				color: #fff;
+				font-size: 15px;
+				font-weight: 700;
+				padding: 2px 8px 0;
+			}
+		</style>
     </body>
 </html>
