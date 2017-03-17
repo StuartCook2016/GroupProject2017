@@ -71,13 +71,12 @@
 										<div class="employee-profile-details">
 											<?php	
 												echo "<div class='single-employee-profile'>";
-													echo "<div class='user-profile-details'>";
+													echo "<div class='user-profile-details'>";														
 														
-															$jobID = $_POST["jobID"];
-															
+															$jobID = $_POST["jobID"];															
 															$servername = "localhost";
-															$username = "root";
-															$password = "root";
+															$username = "jrg2";
+															$password = "password";
 															$database = "jrg2";
 															
 															$conn = new mysqli($servername, $username, $password, $database);
@@ -90,17 +89,15 @@
 															$sql1 = "SELECT * FROM job WHERE jobID = " . $jobID;
 															$result1 = $conn->query($sql1);
 															
-															$sql2 = "SELECT city, country FROM projects AS p, job AS j 
-																WHERE p.projID = j.projID AND j.jobID =" . $jobID;
+															$sql2 = "SELECT city, country FROM projects AS p, job AS j WHERE p.projID = j.projID AND j.jobID =" . $jobID;
 															$result2 = $conn->query($sql2);
 															
-															$sql3 = "SELECT skillName, yearsOfXP FROM job AS j, jobskills AS s 
-															WHERE s.jobID = j.jobID AND j.jobID =" . $jobID;
+															$sql3 = "SELECT skillName, yearsOfXP FROM job AS j, jobskills AS s WHERE s.jobID = j.jobID AND j.jobID =" . $jobID;
 															$result3 = $conn->query($sql3);
 															
 															//if there are results of every query
 															if($result1->num_rows > 0 && $result2->num_rows > 0 
-																&& $result3->num_rows >0) {
+																&& $result3->num_rows > 0) {
 															
 																$row1 = $result1->fetch_assoc();
 																$row2 = $result2->fetch_assoc();
