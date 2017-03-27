@@ -7,6 +7,10 @@ Manager
 		-> view jobs
 	viewApplicationsToJob - Wednesday/Thursday Both of us
 	
+	Send a message - Thursday
+		-> send direct messages to a username
+		-> send broadcast message to all users assigned to a project
+	
 	
 Employee
 	applications page shows the approved jobs, offers the employee an accept or decline
@@ -24,17 +28,22 @@ Employee
 	
 	Need a forgotten password page - Ryan Monday
 		-> asks for username + email address
-		-> diverts you to create password page
+			-> check in database for correct email and username
+		-> if that's right it diverts you to create password page
 			->enter new password
 			->confirm new password
+			->divert to login
+		-> otherwise divert to login
 		
 	Need a change password page - Ryan Monday
 		-> enter current password
 		-> enter new
 		-> confirm new
-		
+		-> divert to login
 		
 	Menu
 		jobs show up that match your skills
 		applications is just the same display as applications page but less
 		messages - leave for now
+		
+		
