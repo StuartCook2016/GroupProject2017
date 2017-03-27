@@ -1,0 +1,513 @@
+/* Base CSS */
+
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+a:focus { outline: 0 solid }
+img {
+    max-width: 100%;
+    height: auto;
+}
+.fix { overflow: hidden }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+html,
+body { height: 100%
+margin: 0px; }
+body {
+
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    color: #333;
+}
+a:hover { text-decoration: none }
+
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* Home Pages CSS */
+
+
+
+  
+
+
+
+/* title */
+
+
+
+
+.send-button button {
+    background: #085394 none repeat scroll 0 0;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 -1px rgba(0, 0, 0, 1);
+    color: #fff;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*User Profile CSS */
+
+
+
+
+
+
+
+/* Project Name CSS */
+
+
+
+.return-employee {
+    float: left;
+    width: 50%;
+}
+.project-name {
+    text-align: left;
+}
+
+.project-name {
+    text-align: left;
+}
+.apply-button {
+    text-align: center;
+}
+.apply-button > button {
+    
+   
+    margin-left: 50px;
+    background: #0892d0 none repeat scroll 0 0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+     padding: 8px 60px;
+    font-weight: 600;
+    text-align:center;
+    
+}
+.edit-project-button > button {
+  
+    background: #0892d0 none repeat scroll 0 0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 600;
+    text-align:center;
+    margin-left: 175px;
+    padding: 8px 20px;
+}
+.gender-employee-btn {
+  float: left;
+  width: 40%;
+}
+.employee-radio-button > label {
+  float: left;
+  text-align:center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left:10px;
+  padding: 0 70px;
+  width: 60%;
+}
+input[type="checkbox"], input[type="radio"] {
+  line-height: normal;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+}
+.single-users-profile select {
+  -moz-appearance: none;
+  background: rgba(0, 0, 0, 0) url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 96% 0;
+  border: 1px solid #000;
+  font-size: 15px;
+  font-weight: 600;
+  height: 32px;
+  padding: 0 8px;
+  width: 50%;
+}
+.single-employee-form td .aproject {
+    background: #009d0e none repeat scroll 0 0;
+    margin-top: 60px;
+
+}
+.single-users-profile .half {
+    margin-right: 115px;
+    width: 30%;
+}
+
+
+/*radio buttons*/
+
+.user-radio-button {
+    overflow: hidden;
+    width: 100%;
+    margin-left: 20px;
+}
+
+
+.edit-button button {
+    margin-left:368px;
+    margin-top: 2px;
+    background: #0892d0 none repeat scroll 0 0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 30px;
+    text-align:center;
+}
+
+
+/*added*/
+
+.employee-menu-area {
+   
+    margin-top:120px;
+    padding-top: 10px;
+    padding-left:0
+    padding-right:0;
+    padding-bottom: 0;
+}
+
+.employee-profile-details {
+    overflow: hidden;
+    width: 100%;
+
+}
+.user-profile-details {
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+.users-profiles {
+    float: left;
+    width: 50%;
+}
+.single-users-profile {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.single-users-profile label {
+    color: #000;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-right: 20px;
+    text-align: right;
+    width: 25%;
+}
+.single-users-profile input {
+    border-radius: 2%;
+  border: 1px solid grey;
+    font-size: 15px;
+    font-weight: 500;
+    height: 32px;
+    display: inline-block;
+    padding: 0 10px;
+  width: 285px;
+}
+
+.user-profile-skrill {
+    overflow: hidden;
+    width: 100%;
+
+}
+.project-name-text textarea{
+  border: 1px solid #D3D3D3;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 700;
+    height: 260px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    overflow-y: scroll;
+    padding: 15px;
+    resize: none;
+    width: 100%;
+
+}
+.user-skill-details textarea {
+    border: 1px solid #D3D3D3;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 700;
+    height: 260px;
+    margin-bottom: 15px;
+    overflow-y: scroll;
+    padding: 15px;
+    resize: none;
+    width: 100%;
+}
+
+.submit-change button {
+  margin-top: 2px;
+    margin-left:460px;
+    background: #0892d0 none repeat scroll 0 0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 40px;
+    text-align: center;
+}
+
+
+/*here*/
+/*table*/
+.employee-menu-details {
+  border: 1px solid grey;
+  height: 500px;
+  margin: 50px 0;
+  overflow-y: auto;
+}
+
+.employee-menu-describe {
+  margin: 40px 0;
+}
+.single-employee-form {
+    height: 100%;
+  overflow-y: auto;
+   overflow-y: scroll;
+    text-align: center;
+    width: 100%;
+   
+
+}
+.single-employee-form form {
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  width: 100%;
+}
+.single-employee-form table td tr {
+    text-align: center;
+    width: 100%;
+}
+.single-employee-form table {
+  background: #fff none repeat scroll 0 0;
+  width: 100%;
+  
+
+
+}
+.single-employee-form th {
+  background: #373737 none repeat scroll 0 0;
+  border-right: 1px solid grey;
+  font-weight:200px;
+  padding: 12px 0;
+  text-align: center;
+  color:#b3b3b3;
+}
+.single-employee-form td {
+  border-right: 2px solid #000;
+  font-weight: 400;
+  height: 45px;
+}
+.single-employee-form .active {
+    background: #eeeeee none repeat scroll 0 0;
+}
+.single-employee-form td input {
+    border: 0px;
+    border-radius: 30px;
+    color: #b3b3b3;
+    background: #0892d0 none repeat scroll 0 0;
+    display: inline-block;
+    font-weight: 400;
+    margin-bottom: 3px;
+    padding: 10px;
+    width: 99%;
+}
+.single-employee-form td:last-child {
+    border-right: 0 none;
+}
+.single-employee-form th:last-child {
+    border-right: 0 none;
+}
+.single-employee-form td .status {
+    background: #fe9900 none repeat scroll 0 0;
+    border: 2px solid #000;
+    box-shadow: 0 3px 0 -1px rgba(0, 0, 0, 1);
+    padding: 10px;
+}
+.single-employee-form td .status {
+    background: #fe9900 none repeat scroll 0 0;
+    border: 2px solid #000;
+    box-shadow: 0 3px 0 -1px rgba(0, 0, 0, 1);
+    font-weight: 400;
+    padding: 10px 0;
+}
+
+
+.single-employee-form td .approve {
+    background: #009d0e none repeat scroll 0 0;
+    color: #fff;
+}
+.main {
+    margin-bottom: 30px;
+}
+.project-search {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  margin-top: 20px;
+
+}
+.project-search label {
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 15px;
+}
+.project-search input {
+    border: 1px solid grey;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 20px;
+    padding: 8px 30px;
+    width: 280px;
+}
+.project-search button {
+     
+    background: #0892d0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 4px 10px;
+    text-align: center;
+  
+    display: inline-block;
+ 
+}
+.project-search i {
+    color: #000;
+    left: 132px;
+    position: absolute;
+    top: 12px;
+}
+.none > form {
+    overflow: hidden;
+}
+
+.left-search-area {
+  margin: 60px 0;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+}
+.single-left-search {
+    margin-bottom: 30px;
+    width: 100%;
+}
+.single-left-search select {
+    -moz-appearance: none;
+    background: none;
+    border: 1px solid #D3D3D3;
+    float: right;
+    font-weight: 500;
+    height: 32px;
+    padding: 0 5px;
+    width: 70%;
+}
+.single-left-search label {
+    margin: 0;
+    padding-top: 5px;
+    width: 30%;
+}
+.search-button {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.search-button input {
+    background: #0892d0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    margin-left: 50px;
+    font-weight: 600;
+    padding: 5px 15px;
+}
+
+.change-p{
+	margin-left: 180px;
+}
+
+.change-p button{
+	background: #0892d0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    margin-left: 50px;
+    font-weight: 600;
+    padding: 5px 15px;
+}
+
+.logout-button {
+	margin-top: 7px;
+}
+
+.submit-button {
+	margin-top: 2px;
+    margin-left:5px;
+    background: #0892d0 none repeat scroll 0 0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px 150px;
+    text-align: center;
+}
