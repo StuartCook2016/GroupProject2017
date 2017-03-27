@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Current Application</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet"> 
+
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+    <div class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="main-header clearfix">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="header">
+                            <div class="header-logo">
+                                <img src="img/logo.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="header">
+                            <div class="header-logo">
+                                <h1>Current Applications</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <div class="header">
+                            <div class="header-logo">
+                            <!--log user out-->
+                                <button type="submit">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="employee-menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="main-employee-menu clearfix">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="employee-menu">
+                              <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#employee-view" aria-controls="employee-view" role="tab" data-toggle="tab">Employee View</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="col-md-12 tab-pane active" id="employee-view">
+                                    <div class="project-search">
+                                        <form action="">
+                                            <label for="search">Project Name:</label>
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                            <input class="searches" id="search" name="search-field" placeholder="Valid Project Name Required" type="text">
+                                            <button type="submit">Submit Search</button>
+                                        </form>
+                                    </div>
+                                    <div class="employee-menu-details">
+                                        <div class="single-employee-form none">
+                                            <form action="">
+                                                <table align="center">
+                                                    <tr>
+                                                        <th align="center">Project Name</th>
+                                                        <th>Job Title</th>
+                                                        <th>Project Type</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+                                                        <th>Location</th>
+                                                        <th>Status</th> <!--this collums allow status of application to be shown--> 
+                                                        <th>View</th> <!-- this collumns button allows user to view the project -->
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="active">Overwatch</td>
+                                                        <td class="active">QA Tester</td>
+                                                        <td class="active">Part-Time</td>
+                                                        <td class="active">30/06/2017</td>
+                                                        <td class="active">21/08/2017</td>
+                                                        <td class="active">London</td>
+                                                        <td>
+                                                            
+                                                        </td>
+                                                        <td><button type="send">View</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dark Souls</td>
+                                                        <td>UI Developer</td>
+                                                        <td>Full-Time</td>
+                                                        <td>08/07/2016</td>
+                                                        <td>21/08/2017</td>
+                                                        <td>Madrid</td>
+                                                        <td><</td>
+                                                        <td><button type="send">View</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="active">Youtube</td>
+                                                        <td class="active">Stact Engineer</td>
+                                                        <td class="active">Full-Time</td>
+                                                        <td class="active">12/07/2016</td>
+                                                        <td class="active">16/10/2017</td>
+                                                        <td class="active">New York</td>
+                                                        <td></td>
+                                                        <td><button type="send">View</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Amazon</td>
+                                                        <td>Web Security</td>
+                                                        <td>Part-Time</td>
+                                                        <td>05/09/2017</td>
+                                                        <td>26/02/2018</td>
+                                                        <td>Tokyo</td>
+                                                        <td><</td>
+                                                        <td><button type="send">View</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="active">Leidos</td>
+                                                        <td class="active">Project Manager</td>
+                                                        <td class="active">Full-Time</td>
+                                                        <td class="active">29/05/2016</td>
+                                                        <td class="active">28/04/2016</td>
+                                                        <td class="active">Edinburgh</td>
+                                                        <td>
+                                                            
+                                                        </td>
+
+                                                        <td><button type="send">View</button></td>
+                                                    </tr>
+                                                </table>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="return-button main">
+                                        <a href="employee-menu.html">Main Menu</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

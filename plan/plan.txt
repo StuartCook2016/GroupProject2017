@@ -1,0 +1,40 @@
+Manager
+	createProject - Stuart By Wed
+	editProject - Stuart By Wed
+	createJob - Stuart By Wed
+	editJob - Stuart By Wed
+	viewProject - Ryan
+		-> view jobs
+	viewApplicationsToJob - Wednesday/Thursday Both of us
+	
+	
+Employee
+	applications page shows the approved jobs, offers the employee an accept or decline
+	once they've accepted. If unsuccesful or pending then give them nothing
+	-> replace view column with accept or decline
+	If you've been declined just have a remove button to say you've seen the status and it will
+	remove the application from the table
+	
+	fix apply to job button in view-job.php - Ryan Maybe Monday
+	
+	edit-profile
+		-> Table showing up skills - Ryan Monday
+		
+	need a UI for editedProfile_db.php - Ryan Monday
+	
+	Need a forgotten password page - Ryan Monday
+		-> asks for username + email address
+		-> diverts you to create password page
+			->enter new password
+			->confirm new password
+		
+	Need a change password page - Ryan Monday
+		-> enter current password
+		-> enter new
+		-> confirm new
+		
+		
+	Menu
+		jobs show up that match your skills
+		applications is just the same display as applications page but less
+		messages - leave for now

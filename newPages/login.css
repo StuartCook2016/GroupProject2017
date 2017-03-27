@@ -1,0 +1,89 @@
+/* Login Pages CSS */
+
+body {
+  background-color:#453A4A;
+}
+.login-area{
+  margin-top: 250px;
+}
+
+
+
+
+.user-name input, .user-password input {
+  border-radius: 60px;
+  margin-top: 10px;
+  display: inline-block;
+  height: 35px;
+  width: 60%;
+  background-color: transparent;
+  color:#F4F4F4;
+
+}
+.user-password input {
+    margin-bottom: 15px;
+}
+
+ a {
+    margin-top:15px;
+    color: #b3b3b3;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+    margin-left: 110px;
+    margin-top: 5px;
+}
+/*
+.login-button button {
+    background: red
+    border: 0px;
+    color: #b3b3b3;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 20px;
+}*/
+.login-button input {
+  margin-top: 2px;
+    margin-left:5px;
+    background: #0892d0 none repeat scroll 0 0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px 150px;
+    text-align: center;
+}
+
+   /* Recover Password CSS */
+
+
+.recover-mail input {
+  border-radius: 60px;
+  margin-top: 10px;
+  display: inline-block;
+  height: 35px;
+  width: 60%;
+  background-color: transparent;
+  color:#F4F4F4;
+
+}
+
+  
+  
+  
+
+
+.recover-button button {
+   margin-top: 20px;
+    margin-left:5px;
+    background: #0892d0 none repeat scroll 0 0;
+    border: 0px;
+    border-radius: 60px;
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px 150px;
+    text-align: center;
+}
