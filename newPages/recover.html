@@ -23,7 +23,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class='login-area'>
 			<div class='container'>
-				<form name="frm6" method="post" action="storedPass_db.php">
+				<form name="frm6" method="post" action="recoverPass.php">
 					<div class='row'>
 						<div class='col-md-4 col-sm-4'></div>
 						<div class='col-md-6 col-sm-6'>
@@ -34,10 +34,10 @@
 										</style>
 							<!--user enters username and password-->
 							<div class='user-name'>
-								<input class='name form-control' name='username' type='text'  placeholder='Enter your username' maxLength='20'>
+								<input class='name form-control' name='username' typeG='text'  placeholder='Enter your username' maxLength='20'>
 							</div>
 							<div class='user-password'>
-								<input class='password form-control' name='passwd' type='password' placeholder='Enter your email address' maxLength='25'>
+								<input class='password form-control' name='email' type='email' placeholder='Enter your email address' maxLength='254'>
 							</div>
 						</div>
 						<div class='col-md-2 col-sm-2'></div>
@@ -48,19 +48,12 @@
 						<div class='col-md-6 col-sm-6'>
 							<div class='login-button'>
 								<!-- this button logs user into right account-->
-								<input type='submit' name='Submit' value='Login'>
+								<input type='submit' name='Submit' value='Submit'>
 							</div>
 						</div>
 						<div class='col-md-2 col-sm-2'></div>
 					</div>
 				</form>
-				<div class='row'>
-					<div class='col-md-4 col-sm-4'></div>
-					<div class='col-md-6 col-sm-6'>
-						<!-- should take to recover.html-->
-						<a href='recover.html'>Forgotten Password?</a>
-					</div>
-				</div>
 			</div>
 			<div class='col-md-2 col-sm-2'></div>
 		</div>

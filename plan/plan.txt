@@ -34,6 +34,9 @@ Employee
 			->confirm new password
 			->divert to login
 		-> otherwise divert to login
+		READ
+			Have almost got this but query to change pass does not work
+			Also need to change formatting of the pages
 		
 	Need a change password page - Ryan Monday
 		-> enter current password
