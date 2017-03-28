@@ -195,11 +195,11 @@
 																		<div class="single-users-profile">
 																			<label for="cnumber">Contact Number:</label>
 																			<input class="cnumbers form-control" id="cnumber" name="contact-number" type="text" value="<?php echo $row['contactNumber']?>" readonly="true">
-																		</div>
+																		</div>																		
 																		<!-- change password-->
 																		<div class="search-button">
-																			<form action='change-password.html' method='post'>
-																				<input type='submit' value='Edit Profile'>
+																			<form action='change-password.php' method='post'>
+																				<input type='submit' value='Change Password'>
 																			</form>
 																		</div>
 																		<!-- to edit page-->
