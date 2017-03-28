@@ -193,7 +193,7 @@
 																			<div class="single-users-profile">
 																				<label for="cnumber">Contact Number:</label>
 																				<input class="cnumbers" id="cnumber" name="contact-number" type="text" value="<?php echo $row['contactNumber']?>">
-																			</div>																			>
+																			</div>
 																		</div>
 																	</div>
 																	<div class="user-profile-skrill">	
