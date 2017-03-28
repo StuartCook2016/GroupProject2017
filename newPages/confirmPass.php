@@ -19,7 +19,6 @@
 			die("Connection to MySQL failed %s </br>" . $conn->connect_error);
 		}
 		
-		echo $_SESSION['tempUsername'];
 		$username = $_SESSION['tempUsername'];
 		
 		//"UPDATE accdetails SET passwd='$newPass' WHERE username='
