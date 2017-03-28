@@ -147,8 +147,56 @@
 					</div>
 					<div class='col-sm-4'>
 						<div class='panel panel-default'>
-							<div class='panel-heading'>Job Listings</div>
+							<div class='panel-heading'>Job Listings That Require Skills You Have</div>
 							<div class='panel-body'>
+								<div class='single-employee-form'>
+									<?php
+									
+									//Return all jobs where the user has a skill required
+									$sql = "SELECT DISTINCT title, startDate, endDate FROM "
+										. "(SELECT j.title, j.startDate, j.endDate, j.jobID FROM job AS j, jobskills AS s WHERE j.jobID = s.jobID) t1 "
+										. "INNER JOIN "
+										. "(SELECT j.jobID FROM jobskills AS j, employeeskills AS e WHERE e.username='" . $username . "' AND j.skillName = e.skillName) t2 "
+										. "ON t1.jobID = t2.jobID "
+										. "ORDER BY RAND() LIMIT 6";
+									
+									$result = $conn->query($sql);
+
+									if($result->num_rows > 0) {
+									
+										echo "<table align='center'>";
+											echo "<tr>";
+												echo "<th>Job Title</th>";										
+												echo "<th>Start Date</th>";
+												echo "<th>End Date</th>";
+											echo "</tr>";
+											
+											//Used as a counter for table rows
+											$activeFlag = 0;																
+											while($row = $result->fetch_assoc()) {
+											
+												//Used to display alternating colours in table rows
+												if($activeFlag % 2 == 0) {
+													echo "<tr>";
+												} else {
+													echo "<tr class='active'>";
+												}
+													echo "<td>" . $row['title'] . "</td>";
+													echo "<td>" . $row['startDate'] . "</td>";
+													echo "<td>" . $row['endDate'] . "</td>";
+											
+												echo "</tr>";										
+												
+												$activeFlag++;										
+											}
+										
+										echo "</table>";
+									} else {
+										echo "There are currently no projects which match your skill set";
+									}
+									
+									?>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -160,7 +208,7 @@
 		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
-					<div class='row'>	
+					<div class='row'>
 						<div class='copyright'>
 							<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
 						</div>
