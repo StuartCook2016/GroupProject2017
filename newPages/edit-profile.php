@@ -168,37 +168,99 @@
 																		<!--able to edit all of these-->
 																			<div class="single-users-profile">
 																				<label for="fname">First Name:</label>
-																				<input class="fnames" id="fname" name="first-name" type="text" value="<?php echo $row['firstName']?>">
+																				<input class="fnames" id="fname" name="first-name" type="text" value="<?php echo $row['firstName']?>" maxlength='35'>
 																			</div>																		
 																			<div class="single-users-profile">
 																				<label for="e-mail">Email Address:</label>
-																				<input class="emails" id="e-mail" name="email-address" type="text" value="<?php echo $row['emailAddress']?>">
+																				<input class="emails" id="e-mail" name="email-address" type="text" value="<?php echo $row['emailAddress']?>" maxlength='254'>
 																			</div>
 																			<div class="single-users-profile">
 																				<label for="clocation">Current Location:</label>
-																				<input class="locations" id="clocation1" name="location1" type="text" value="<?php echo $row['city']?>">
+																				<input class="locations" id="clocation1" name="location1" type="text" value="<?php echo $row['city']?>" maxlength='30'>
 																			</div>
 																			<!--Current Location - Country -->
 																			<div class="single-users-profile">
 																				<label></label>
-																				<input class="plocations form-control" id="clocation2" name="location2" type="text" value="<?php echo $row['country']?>">
+																				<input class="plocations form-control" id="clocation2" name="location2" type="text" value="<?php echo $row['country']?>" maxlength='30'>
 																			</div>																			
 																		</div>
 																		<div class="users-profiles project-name">
 																			<!-- last name of employee -->
 																			<div class="single-users-profile">
 																				<label for="lname">Last Name:</label>
-																				<input class="lnames form-control" id="lname" name="last-name" type="text"  value="<?php echo $row['lastName']?>">
+																				<input class="lnames form-control" id="lname" name="last-name" type="text"  value="<?php echo $row['lastName']?>" maxlength='35'>
 																			</div>
 																			<div class="single-users-profile">
 																				<label for="cnumber">Contact Number:</label>
-																				<input class="cnumbers" id="cnumber" name="contact-number" type="text" value="<?php echo $row['contactNumber']?>">
+																				<input class="cnumbers" id="cnumber" name="contact-number" type="text" value="<?php echo $row['contactNumber']?>" maxlength='20'>
 																			</div>
 																		</div>
 																	</div>
 																	<div class="user-profile-skrill">	
 																		<div class="user-skill-details">
-																			<textarea class="pprojects" id="pproject" name="past-project" placeholder="Past Projects"style="resize: none;"></textarea>
+																			<!--past projects-->
+																			<div class='single-employee-form'>
+																				<table align='center'>																				
+																					<tr>
+																						<th>Project Name</th>
+																						<th>Job Within Project</th>
+																						<th>Start Date</th>
+																						<th>End Date</th>																					
+																						<th>View Project</th>
+																						<th>View Job</th>
+																					</tr>
+																					
+																					<?php
+																						$projectsQuery = "SELECT p.projID, p.projName, j.jobID, j.startDate, j.endDate, j.title FROM "
+																										. "projects AS p, job AS j "
+																										. "WHERE p.projID = j.projID "
+																										. "AND j.username = '" . $username . "' "
+																										. "AND p.finished = 'Y'";
+																						$resultProjectsQuery = $con->query($projectsQuery);
+																						
+																						//if there are results
+																						if($resultProjectsQuery->num_rows > 0) {
+																							
+																							$activeFlag = 0;
+																							while($rowProjects = $resultProjectsQuery->fetch_assoc()) {
+																							
+																								//Used to display alternating colours in table rows
+																								if($activeFlag % 2 == 0) {
+																									echo "<tr>";
+																								} else {
+																									echo "<tr class='active'>";
+																								}
+																								
+																									echo "<td>" . $rowProjects['projName'] . "</td>";
+																									echo "<td>" . $rowProjects['title'] . "</td>";
+																									echo "<td>" . $rowProjects['startDate'] . "</td>";
+																									echo "<td>" . $rowProjects['endDate'] . "</td>";																								
+																									
+																									echo "<td>";
+																										echo "<form action='view-project.php' method='post'>";
+																											echo "<input type='hidden' name='projID' value='" . $rowProjects['projID'] . "'>";
+																											echo "<input type='submit' value='View'>";
+																										echo "</form>";
+																									echo "</td>";
+																									
+																									echo "<td>";
+																										echo "<form action='view-job.php' method='post'>";
+																											echo "<input type='hidden' name='jobID' value='" . $rowProjects['jobID'] . "'>";
+																											echo "<input type='submit' value='View'>";
+																										echo "</form>";
+																									echo "</td>";
+																								
+																								echo "</tr>";
+															
+																								$activeFlag++;																						
+																							}																	
+																						}																					
+																					?>																			
+																				</table>																				
+																			</div>
+																			</br>
+																			</br>																			
+																			
 																			<textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton" style="resize: none;"><?php echo $row['additionalInfo']?></textarea>
 																		</div>
 																	</div>																	
@@ -243,21 +305,47 @@
 																				<option> 10+ </option>
 																			</select>
 																			
-																			<input type="submit" id="myCheck" onclick="addSkill();" value="Click to add Skill"></input>
+																			<div class="search-button">																			
+																				<input type="submit" id="myCheck" onclick="addSkill();" value="Click to add Skill"></input>
+																			</div>																			
 																			</br>
-																			<textarea class="uskill" name="addedskill" id="addedskill" placeholder="Skills" style="resize: none;" readonly ></textarea>
 																			
-																			
-																			<script>					
-																				function addSkill(){
-																				var skill = document.getElementById('skill').value;
-																				var exp = document.getElementById('exp').value;
-																				var old = ",\n" + document.getElementById('addedskill').value;
-																	
-																				document.getElementById("addedskill").innerHTML = skill + "," + exp + " " + "experience" + " " + old;
-																				
-																				};																			
-																			</script>													
+																			<!-- area to be populated by skills-->
+																			<div class='single-employee-form'>
+																				<table align='center'>
+																					<tr>
+																						<th>Skills</th>
+																						<th>Years of Experience</th>
+																					</tr>
+																					
+																					<?php
+																						$skillsQuery = "SELECT skillName, yearsOfXP FROM employeeskills WHERE username='" . $username . "'";
+																						$resultSkillsQuery = $con->query($skillsQuery);
+																						
+																						//if there are results
+																						if($resultSkillsQuery->num_rows > 0) {
+																							
+																							$activeFlag = 0;
+																							while($rowSkills = $resultSkillsQuery->fetch_assoc()) {
+																							
+																								//Used to display alternating colours in table rows
+																								if($activeFlag % 2 == 0) {
+																									echo "<tr>";
+																								} else {
+																									echo "<tr class='active'>";
+																								}
+																								
+																									echo "<td>" . $rowSkills['skillName'] . "</td>";
+																									echo "<td>" . $rowSkills['yearsOfXP'] . "</td>";
+																								echo "</tr>";
+															
+																								$activeFlag++;																						
+																							}																	
+																						}
+																					?>																			
+																				</table>
+																			</div>
+																			</br>
 																			</br>
 																		</div>
 																	</div>
