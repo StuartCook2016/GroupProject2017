@@ -60,7 +60,7 @@
 										<input class='password form-control' name='newPass' type='password'  placeholder='Enter a new password' maxLength='25'>
 									</div>
 									<div class='user-password'>
-										<input class='password form-control' name='newPassConfirm' type='password' placeholder='Confirm a new passwrod' maxLength='25'>
+										<input class='password form-control' name='newPassConfirm' type='password' placeholder='Confirm a new password' maxLength='25'>
 									</div>
 								</div>
 								<div class='col-md-2 col-sm-2'></div>
