@@ -414,40 +414,28 @@
 															$minEndDate = $_POST["end-date1"];
 															$maxEndDate = $_POST["end-date2"];														
 														
-															$sql = "SELECT * FROM job AS j WHERE";
-																														
-															//Used to determine wether to add 'AND' to sql query
-															$appendCounter = 0;
+															$sql = "SELECT * FROM job AS j WHERE j.username IS NULL";
+															
 															//if the title specified is not any
 															if(strcasecmp($jobTitle, 'any') != 0) {
 															
 																//append section of query containing title
-																$sql = $sql . " j.title = '" . $jobTitle . "'";
-																$appendCounter++;
+																$sql = $sql . " AND j.title = '" . $jobTitle . "'";																
 															}
 
 															//if the contract type  specified is not any
-															if(strcasecmp($contractType, 'any') != 0) {
-															
-																if($appendCounter > 0) {
-																	//append section of query containing contractType
-																	$sql = $sql . " AND j.contractType = '" . $contractType . "'";
-																} else {
-																	$sql = $sql . " j.contractType = '" . $contractType . "'";
-																	$appendCounter++;
-																}																
+															if(strcasecmp($contractType, 'any') != 0) {															
+																
+																//append section of query containing contractType
+																$sql = $sql . " AND j.contractType = '" . $contractType . "'";
+																																
 															}
 															
-															if($appendCounter > 0) {
-																//append section of query calculating salaries within range
-																$sql = $sql . " AND j.salary BETWEEN " . $minSalary . " AND " . $maxSalary;
-															} else {
-																//append section of query calculating salaries within range
-																$sql = $sql . " j.salary BETWEEN " . $minSalary . " AND " . $maxSalary;
-																$appendCounter++;
-															}
 															
-															//append section of query calculating if dates are within range
+															//append section of query calculating salaries within range
+															$sql = $sql . " AND j.salary BETWEEN " . $minSalary . " AND " . $maxSalary;													
+															
+																														//append section of query calculating if dates are within range
 															$sql = $sql . " AND j.startDate BETWEEN '" . $minStartDate . "' AND '" . $maxStartDate . "'";
 															$sql = $sql . " AND j.endDate BETWEEN '" . $minEndDate . "' AND '" . $maxEndDate . "'";
 															
@@ -460,9 +448,10 @@
 																											
 														//The POST variables are not set
 														} else {															
-															$sql = "SELECT * FROM job";
+															$sql = "SELECT * FROM job WHERE job.username IS NULL";
 														}	
-																											
+																		
+														var_dump($sql);
 														$result = $conn->query($sql);
 														
 														//if there are results
