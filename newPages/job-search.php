@@ -450,8 +450,7 @@
 														} else {															
 															$sql = "SELECT * FROM job WHERE job.username IS NULL";
 														}	
-																		
-														var_dump($sql);
+														
 														$result = $conn->query($sql);
 														
 														//if there are results
