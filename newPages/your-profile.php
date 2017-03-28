@@ -212,10 +212,103 @@
 																</div>
 																<div class="user-profile-skrill">
 																	<div class="user-skill-details">
-																	<!-- area to be populated by skills-->
-																		<textarea class="uskill" name="skill" placeholder="Skills"  disabled></textarea>
+																		<!-- area to be populated by skills-->
+																		<div class='single-employee-form'>
+																			<table align='center'>
+																				<tr>
+																					<th>Skills</th>
+																					<th>Years of Experience</th>
+																				</tr>
+																				
+																				<?php
+																					$skillsQuery = "SELECT skillName, yearsOfXP FROM employeeskills WHERE username='" . $username . "'";
+																					$resultSkillsQuery = $con->query($skillsQuery);
+																					
+																					//if there are results
+																					if($resultSkillsQuery->num_rows > 0) {
+																						
+																						$activeFlag = 0;
+																						while($rowSkills = $resultSkillsQuery->fetch_assoc()) {
+																						
+																							//Used to display alternating colours in table rows
+																							if($activeFlag % 2 == 0) {
+																								echo "<tr>";
+																							} else {
+																								echo "<tr class='active'>";
+																							}
+																							
+																								echo "<td>" . $rowSkills['skillName'] . "</td>";
+																								echo "<td>" . $rowSkills['yearsOfXP'] . "</td>";
+																							echo "</tr>";
+														
+																							$activeFlag++;																						
+																						}																	
+																					}
+																				?>																			
+																			</table>
+																		</div>
+																		</br>
 																		<!--past projects-->
-																		<textarea class="pprojects" name="pastProject" placeholder="Past Projects"  disabled></textarea>
+																		<div class='single-employee-form'>
+																			<table align='center'>																				
+																				<tr>
+																					<th>Project Name</th>
+																					<th>Job Within Project</th>
+																					<th>Start Date</th>
+																					<th>End Date</th>																					
+																					<th>View Project</th>
+																					<th>View Job</th>
+																				</tr>
+																				
+																				<?php
+																					$projectsQuery = "SELECT p.projID, p.projName, j.jobID, j.startDate, j.endDate, j.title FROM "
+																									. "projects AS p, job AS j "
+																									. "WHERE p.projID = j.projID "
+																									. "AND j.username = '" . $username . "' "
+																									. "AND p.finished = 'Y'";
+																					$resultProjectsQuery = $con->query($projectsQuery);
+																					
+																					//if there are results
+																					if($resultProjectsQuery->num_rows > 0) {
+																						
+																						$activeFlag = 0;
+																						while($rowProjects = $resultProjectsQuery->fetch_assoc()) {
+																						
+																							//Used to display alternating colours in table rows
+																							if($activeFlag % 2 == 0) {
+																								echo "<tr>";
+																							} else {
+																								echo "<tr class='active'>";
+																							}
+																							
+																								echo "<td>" . $rowProjects['projName'] . "</td>";
+																								echo "<td>" . $rowProjects['title'] . "</td>";
+																								echo "<td>" . $rowProjects['startDate'] . "</td>";
+																								echo "<td>" . $rowProjects['endDate'] . "</td>";																								
+																								
+																								echo "<td>";
+																									echo "<form action='view-project.php' method='post'>";
+																										echo "<input type='hidden' name='projID' value='" . $rowProjects['projID'] . "'>";
+																										echo "<input type='submit' value='View'>";
+																									echo "</form>";
+																								echo "</td>";
+																								
+																								echo "<td>";
+																									echo "<form action='view-job.php' method='post'>";
+																										echo "<input type='hidden' name='jobID' value='" . $rowProjects['jobID'] . "'>";
+																										echo "<input type='submit' value='View'>";
+																									echo "</form>";
+																								echo "</td>";
+																							
+																							echo "</tr>";
+														
+																							$activeFlag++;																						
+																						}																	
+																					}																					
+																				?>																			
+																			</table>
+																		</div>
+																		</br>
 																		<!--additional info-->
 
 																		<textarea class="ainformaitons" id="ainformaiton" name="additional-informaiton"  disabled ><?php echo $row['additionalInfo']?></textarea>
