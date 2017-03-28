@@ -135,6 +135,51 @@
 						<div class='panel panel-default'>
 							<div class='panel-heading'>Your Applications</div>
 							<div class='panel-body'>
+								<div class='single-employee-form'>
+									<?php
+									
+									$sql = "SELECT title, contractType, status FROM "
+										. "job AS j, applications AS a "
+										. "WHERE j.jobID = a.jobID "
+										. "AND a.username='" . $username . "' "
+										. "LIMIT 7";
+									
+									$result = $conn->query($sql);
+
+									if($result->num_rows > 0) {
+									
+										echo "<table align='center'>";
+											echo "<tr>";
+												echo "<th>Job Title</th>";	
+												echo "<th>Contract Type</th>";
+												echo "<th>Status</th>";																							
+											echo "</tr>";
+											
+											//Used as a counter for table rows
+											$activeFlag = 0;																
+											while($row = $result->fetch_assoc()) {
+											
+												//Used to display alternating colours in table rows
+												if($activeFlag % 2 == 0) {
+													echo "<tr>";
+												} else {
+													echo "<tr class='active'>";
+												}
+													echo "<td>" . $row['title'] . "</td>";
+													echo "<td>" . $row['contractType'] . "</td>";
+													echo "<td>" . $row['status'] . "</td>";
+											
+												echo "</tr>";										
+												
+												$activeFlag++;										
+											}
+										
+										echo "</table>";
+									} else {
+										echo "You currently have no open job applications";
+									}								
+									?>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -153,8 +198,8 @@
 									<?php
 									
 									//Return all jobs where the user has a skill required
-									$sql = "SELECT DISTINCT title, startDate, endDate FROM "
-										. "(SELECT j.title, j.startDate, j.endDate, j.jobID FROM job AS j, jobskills AS s WHERE j.jobID = s.jobID) t1 "
+									$sql = "SELECT DISTINCT title, contractType, startDate, endDate FROM "
+										. "(SELECT j.title, j.contractType, j.startDate, j.endDate, j.jobID FROM job AS j, jobskills AS s WHERE j.jobID = s.jobID) t1 "
 										. "INNER JOIN "
 										. "(SELECT j.jobID FROM jobskills AS j, employeeskills AS e WHERE e.username='" . $username . "' AND j.skillName = e.skillName) t2 "
 										. "ON t1.jobID = t2.jobID "
@@ -166,9 +211,10 @@
 									
 										echo "<table align='center'>";
 											echo "<tr>";
-												echo "<th>Job Title</th>";										
+												echo "<th>Job Title</th>";	
+												echo "<th>Contract Type</th>";
 												echo "<th>Start Date</th>";
-												echo "<th>End Date</th>";
+												echo "<th>End Date</th>";												
 											echo "</tr>";
 											
 											//Used as a counter for table rows
@@ -182,6 +228,7 @@
 													echo "<tr class='active'>";
 												}
 													echo "<td>" . $row['title'] . "</td>";
+													echo "<td>" . $row['contractType'] . "</td>";
 													echo "<td>" . $row['startDate'] . "</td>";
 													echo "<td>" . $row['endDate'] . "</td>";
 											
@@ -197,7 +244,7 @@
 									
 									?>
 								</div>
-							</div>
+							</div>							
 						</div>
 					</div>
 				</div>
