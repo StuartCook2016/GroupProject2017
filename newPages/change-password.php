@@ -7,26 +7,26 @@
 	}
 ?>
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
     <head>
-        <meta charset='utf-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Menu</title>
+        <title>Change Password</title>
 
-        <link href='css/bootstrap.min.css' rel='stylesheet'>
-        <link href='css/font-awesome.min.css' rel='stylesheet'>
-        <link href='style.css' rel='stylesheet'>
-        <link href='style2.css' rel='stylesheet'>
-        <link href='css/responsive.css' rel='stylesheet'>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <link href="style2.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
 
-        <link href='https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext' rel='stylesheet'> 
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet"> 
 
 
         <!--[if lt IE 9]>
-        <script src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js'></script>
-        <script src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js'></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
     <body>
@@ -127,36 +127,38 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-		
-		<div class='employee-menu-area'>
-			<div class='container'>
-				<div class='row'>
-					<div class='col-sm-5'>
-						<div class='panel panel-default'>
-							<div class='panel-heading'>Your Applications</div>
-							<div class='panel-body'>
+		<div class="login-area">
+			<div class="container">
+				<form action='checkPass.php' method='post'>
+					<div class="row">
+						<div class="col-md-4 col-sm-4"></div>                
+						<div class="col-md-6 col-sm-6">                            
+							<!--user enters username and password-->
+							<div class="login-details">
+								<!--fields for new password-->
+								<div class="user-change">
+									<input class="password form-control" name="newPass" type="password" placeholder="Enter a new Password" maxLength='25'>
+								</div>	
+								<div class="confirm-change">
+									<input class="password" name="newPassConfirm" type="password" placeholder="Confirm a new password" maxLength='25'>
+								</div>				
 							</div>
 						</div>
+						<div class="col-md-2 col-sm-2"></div>
 					</div>
-					<div class='col-sm-3'>
-						<div class='panel panel-default'>
-							<div class='panel-heading'>Your Messages</div>
-							<div class='panel-body'>
-							</div>
+					<div class="row">
+						<div class="col-md-4 col-sm-4"></div>
+						<div class="col-md-6 col-sm-6">						
+							<div class="change-button">
+								<button type="submit">Submit</button>
+							</div>									   
 						</div>
+						<div class="col-md-2 col-sm-2"></div>
 					</div>
-					<div class='col-sm-4'>
-						<div class='panel panel-default'>
-							<div class='panel-heading'>Job Listings</div>
-							<div class='panel-body'>
-							</div>
-						</div>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
-		  
-			
+        
 		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
@@ -168,9 +170,9 @@
 				</div>
 			</footer>
 		</div>
-
-        <script src='js/jquery.min.js'></script>
-        <script src='js/bootstrap.min.js'></script>
-        <script src='js/main.js'></script>
+		
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

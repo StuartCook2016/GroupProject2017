@@ -35,12 +35,17 @@
 						<div class='col-md-4 col-sm-4'></div>
 						<div class='col-md-6 col-sm-6'>
 							<p>Login</p>
-									<style>
-										p {	color: white;
-											font-size:35px;
-											
-										  }
-									</style>
+							<style>
+								p {	color: white;
+									font-size:35px;
+								  }
+							</style>
+						</div>
+						<div class='col-md-2 col-sm-2'></div>
+					</div>
+					<div class='row'>
+						<div class='col-md-4 col-sm-4'></div>
+						<div class='col-md-6 col-sm-6'>
 							<!--user enters username and password-->
 							<div class='user-name'>
 								<input class='name form-control' name='username' type='text'  placeholder='Enter your username' maxLength='20'>

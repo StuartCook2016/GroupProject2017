@@ -18,10 +18,15 @@
 		if($conn->connect_error) {
 			die("Connection to MySQL failed %s </br>" . $conn->connect_error);
 		}
-		$changePassQuery = "UPDATE accdetails SET username='" . $_SESSION['tempUsername'] . "', passwd='" . $newPass . "', position=position WHERE username='" . $_SESSION['tempUsername']."'";
-		$result = $conn->query($changePassQuery);
 		
-		if($result->num_rows > 0) {
+		$username = $_SESSION['tempUsername'];
+		
+		//"UPDATE accdetails SET passwd='$newPass' WHERE username='
+		$changePassQuery = "UPDATE accdetails SET passwd='" . $newPass . "' WHERE username='" . $username . "'";
+		$result = $conn->query($changePassQuery);
+
+		//If query was performed successfully
+		if($result) {
 			?>		
 			<!DOCTYPE html>
 			<html lang='en'>
@@ -145,6 +150,7 @@
 		<?php
 		}	
 	} else {
+		//Passwords did not match
 		?>
 		<!DOCTYPE html>
 		<html lang='en'>
