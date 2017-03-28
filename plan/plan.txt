@@ -20,19 +20,14 @@ Employee
 	remove the application from the table
 	
 	fix apply to job button in view-job.php - Ryan Maybe Monday
-	
-	edit-profile
-		-> Table showing up skills - Ryan Monday
 		
 	need a UI for editedProfile_db.php - Ryan Monday
 	
-	Need a forgotten password page - Ryan Monday	These are both finished but need further testing and
-	Need a change password page - Ryan Tuesday		styling fixes
+	Password Pages - These are both finished but need further testing and needstyling fixes
 		
 	Menu
-		jobs show up that match your skills
+		jobs and applications
 			- This is mostly done but needs style changes and testing
-		applications is just the same display as applications page but less
 		messages - leave for now
 	
 	
