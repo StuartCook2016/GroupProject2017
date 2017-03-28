@@ -12,7 +12,7 @@
 	}
 
 	//Run the query, store result in a string and store number of rows returned 
-    $result= mysqli_query($con,"SELECT position FROM accdetails WHERE username='$username' AND passwd='$userpass'") or die("Error: ".mysqli_error($con));
+    $result= mysqli_query($con,"SELECT position FROM accdetails WHERE username='$username' AND passwd= BINARY '$userpass'") or die("Error: ".mysqli_error($con));
   
      
 	//Return the number of rows in result set
