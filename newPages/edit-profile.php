@@ -205,9 +205,7 @@
 																						<th>Project Name</th>
 																						<th>Job Within Project</th>
 																						<th>Start Date</th>
-																						<th>End Date</th>																					
-																						<th>View Project</th>
-																						<th>View Job</th>
+																						<th>End Date</th>
 																					</tr>
 																					
 																					<?php
@@ -235,21 +233,6 @@
 																									echo "<td>" . $rowProjects['title'] . "</td>";
 																									echo "<td>" . $rowProjects['startDate'] . "</td>";
 																									echo "<td>" . $rowProjects['endDate'] . "</td>";																								
-																									
-																									echo "<td>";
-																										echo "<form action='view-project.php' method='post'>";
-																											echo "<input type='hidden' name='projID' value='" . $rowProjects['projID'] . "'>";
-																											echo "<input type='submit' value='View'>";
-																										echo "</form>";
-																									echo "</td>";
-																									
-																									echo "<td>";
-																										echo "<form action='view-job.php' method='post'>";
-																											echo "<input type='hidden' name='jobID' value='" . $rowProjects['jobID'] . "'>";
-																											echo "<input type='submit' value='View'>";
-																										echo "</form>";
-																									echo "</td>";
-																								
 																								echo "</tr>";
 															
 																								$activeFlag++;																						
