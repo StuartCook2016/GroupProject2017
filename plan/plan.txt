@@ -44,4 +44,7 @@ All pages
 	
 	Add the link from footer-dark section from menu to all pages except
 	logging in pages
+	
+	Any tables
+		- fill space with empty rows
 		
