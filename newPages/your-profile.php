@@ -139,7 +139,7 @@
 			}
 
 			# Run the query, store result in a string and store number of rows returned 
-			$result= mysqli_query($con,"SELECT `firstName`, `lastName`, `emailAddress`, `contactNumber`, `city`, `country`,`additionalInfo`, `willingToRelocate` FROM employee WHERE username='$username'") or die("Error: ".mysqli_error($con));
+			$result= mysqli_query($con,"SELECT `firstName`, `lastName`, `emailAddress`, `contactNumber`, `city`, `country`,`additionalInfo` FROM employee WHERE username='$username'") or die("Error: ".mysqli_error($con));
 		  
 			 
 			// Return the number of rows in result set
@@ -195,18 +195,12 @@
 																		<div class="single-users-profile">
 																			<label for="cnumber">Contact Number:</label>
 																			<input class="cnumbers form-control" id="cnumber" name="contact-number" type="text" value="<?php echo $row['contactNumber']?>" readonly="true">
-																		</div>	
-																		<div class="user-radio-button">
-																			<label for="wrlocate">Willing to relocate</label>													
-																			<?php																			
-																				if(strcasecmp($row['willingToRelocate'], "no") == 0) {																					
-																					echo "<input type='radio' id='wrlocate' name='gender' value='yes' disabled> Yes";
-																					echo "<input type='radio' id='wrlocate' name='gender' value='no' checked> No";
-																				} else {
-																					echo "<input type='radio' id='wrlocate' name='gender' value='yes' checked> Yes";
-																					echo "<input type='radio' id='wrlocate' name='gender' value='no' disabled> No";
-																				}
-																			?>
+																		</div>
+																		<!-- change password-->
+																		<div class="search-button">
+																			<form action='change-password.html' method='post'>
+																				<input type='submit' value='Edit Profile'>
+																			</form>
 																		</div>
 																		<!-- to edit page-->
 																		<div class="search-button">
