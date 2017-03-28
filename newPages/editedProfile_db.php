@@ -22,15 +22,16 @@ $country=$_POST['location2'];
 $contactNumber=$_POST['contact-number'];
 $additionalInfo=$_POST['additional-informaiton'];
 
-
-
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $connUsername, $password);
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
+	//This allows user to enter special chars
+	$additionalInfo = $conn->quote($additionalInfo);
+	
     //Update the data regardless if it has changed or not
-    $sql = "UPDATE employee SET firstName = '$firstName', lastName = '$lastName', emailAddress = '$emailAddress', contactNumber = '$contactNumber', city = '$city', country = '$country', additionalInfo = '$additionalInfo' WHERE username = '$username'";
+    $sql = "UPDATE employee SET firstName = '$firstName', lastName = '$lastName', emailAddress = '$emailAddress', contactNumber = '$contactNumber', city = '$city', country = '$country', additionalInfo = $additionalInfo WHERE username = '$username'";
 
     $conn->exec($sql);
    
