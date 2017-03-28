@@ -31,6 +31,7 @@ Employee
 		
 	Menu
 		jobs show up that match your skills
+			- This is mostly done but needs style changes and testing
 		applications is just the same display as applications page but less
 		messages - leave for now
 	
