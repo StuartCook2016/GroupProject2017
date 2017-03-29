@@ -249,7 +249,7 @@
 													</div>
 													<div class='search-button'>
 														<!--button returns the results of the search-->
-														<input class='blueButton' type='submit' value='Search'>
+														<input type='submit' value='Search'>
 													</div>											
 												</form>	
 											</div>
@@ -376,12 +376,6 @@
 													?>
 												</div>
 											</div>
-										</div>
-											
-										<div class='return-button'>
-											<div class='return-button'>
-												<a class='blueButton' href='manager-menu.php'>Return to Main Menu</a>
-											</div>
 										</div>									
 									</div>
 								</div>
@@ -396,17 +390,5 @@
         <script src='js/bootstrap.min.js'></script>
         <script src='js/main.js'></script>
 		
-		<!-- inline styling to links and buttons look the same as logout button -->
-		<style>
-			.blueButton { 
-				background: #085394 none repeat scroll 0 0;
-				border: 2px solid #000;
-				box-shadow: 3px 3px 0 -1px rgba(0, 0, 0, 1);
-				color: #fff;
-				font-size: 15px;
-				font-weight: 700;
-				padding: 2px 8px 0;
-			}
-		</style>
     </body>
 </html>

@@ -149,8 +149,9 @@
 										if($conn->connect_error) {
 											die("Connection to MySQL failed %s </br>" . $conn->connect_error);
 										}
-									
-										echo "<div role='tabpanel' id='employee-view'>";
+									?>
+										<div role='tabpanel' tab-pane active" id='employee-view'>
+									<?php
 											echo "<div class='col-md-3 col-sm-3'>";
 												echo "<div class='left-search-area'>";
 													echo "";
@@ -388,7 +389,6 @@
 											echo "<div class='col-md-9 col-sm-9'>";
 												echo "<div class='employee-menu-details'>";
 													echo "<div class='single-employee-form'>";								
-														
 														//Used to store query used to display results
 														$sql = "";
 														
@@ -493,13 +493,14 @@
 																	echo "</tr>";
 
 																	$activeFlag++;
-																}
-															
+																}																
+														
 															echo "</table>";
 															echo "</br>"; echo "</br>";
 														} else {
 															echo "There were no projects that matched your search criteria. </br>";
 														}
+														
 													echo "</div>";
 												echo "</div>";
 											echo "</div>";

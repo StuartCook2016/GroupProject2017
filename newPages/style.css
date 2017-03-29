@@ -123,7 +123,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     background: #0892d0 none repeat scroll 0 0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
      padding: 8px 60px;
     font-weight: 600;
     text-align:center;
@@ -134,7 +134,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     background: #0892d0 none repeat scroll 0 0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
     font-size: 12px;
     font-weight: 600;
     text-align:center;
@@ -198,7 +198,7 @@ input[type="checkbox"], input[type="radio"] {
     background: #0892d0 none repeat scroll 0 0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
     font-size: 12px;
     font-weight: 600;
     padding: 10px 30px;
@@ -293,7 +293,7 @@ input[type="checkbox"], input[type="radio"] {
     background: #0892d0 none repeat scroll 0 0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
     font-size: 12px;
     font-weight: 600;
     padding: 10px 40px;
@@ -316,7 +316,6 @@ input[type="checkbox"], input[type="radio"] {
 .single-employee-form {
     height: 100%;
   overflow-y: auto;
-   overflow-y: scroll;
     text-align: center;
     width: 100%;
    
@@ -358,7 +357,7 @@ input[type="checkbox"], input[type="radio"] {
 .single-employee-form td input {
     border: 0px;
     border-radius: 30px;
-    color: #b3b3b3;
+    color: white;
     background: #0892d0 none repeat scroll 0 0;
     display: inline-block;
     font-weight: 400;
@@ -422,9 +421,9 @@ input[type="checkbox"], input[type="radio"] {
     background: #0892d0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 600;
     padding: 4px 10px;
     text-align: center;
   
@@ -455,6 +454,7 @@ input[type="checkbox"], input[type="radio"] {
     -moz-appearance: none;
     background: none;
     border: 1px solid #D3D3D3;
+	border-radius: 60px;
     float: right;
     font-weight: 500;
     height: 32px;
@@ -475,10 +475,12 @@ input[type="checkbox"], input[type="radio"] {
     background: #0892d0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
     margin-left: 50px;
     font-weight: 600;
     padding: 5px 15px;
+	height: 10%;
+	width: 30%;
 }
 
 .change-p{
@@ -489,7 +491,7 @@ input[type="checkbox"], input[type="radio"] {
 	background: #0892d0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
     margin-left: 50px;
     font-weight: 600;
     padding: 5px 15px;
@@ -505,9 +507,9 @@ input[type="checkbox"], input[type="radio"] {
     background: #0892d0 none repeat scroll 0 0;
     border: 0px;
     border-radius: 60px;
-    color: #b3b3b3;
+    color: white;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 600;
     padding: 10px 150px;
     text-align: center;
 }
