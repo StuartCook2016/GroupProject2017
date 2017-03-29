@@ -206,15 +206,16 @@
 																		<form action="edit-project.php" method="post">
 																			<input type="submit" value="Edit Project">
 																		</form>
-																	</div>
-																<?php	
-																}
-																?>
+																	</div>																	
+																
 																	<div class="search-button">
 																		<form action="create-job.php" method="post">
 																			<input type="submit" value="Add Job">
 																		</form>
 																	</div>
+																<?php
+																}
+																?>
 															</div>
 														</div>
 														<div class="user-profile-skrill">
@@ -229,8 +230,8 @@
 																		</tr>
 																		
 																		<?php																							
-																			$employeeQuery = "SELECT t1.username, title FROM "
-																							. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1 "
+																			$employeeQuery = "SELECT t1.username, t2.title FROM "
+																							. "(SELECT j.username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1 "
 																							. "INNER JOIN "
 																							. "(SELECT e.username, title FROM employee AS e, job AS j WHERE e.username=j.username) t2 "
 																							. "ON t1.username = t2.username";
@@ -240,7 +241,7 @@
 																			if($resultEmployeeQuery->num_rows > 0) {
 
 																				$activeFlag = 0;
-																				while($rowEmployeeQuery = $resultProjectsQuery->fetch_assoc()) {
+																				while($rowEmployeeQuery = $resultEmployeeQuery->fetch_assoc()) {
 																					
 																					//Used to display alternating colours in table rows
 																					if($activeFlag % 2 == 0) {
@@ -251,21 +252,24 @@
 																						echo "<td>" . $rowEmployeeQuery['username'] . "</td>";
 																						echo "<td>" . $rowEmployeeQuery['title'] . "</td>";
 																						
-																						//Used to send a message directly to an employee
-																						echo "<td>";
-																							echo "<form action='' method='post'>";
-																								echo "<input type='hidden' name='chosenUsername' value='" . $rowEmployeeQuery['username'] . "'>";
-																								echo "<input type='submit' value='Message'>";
-																							echo "</form>";
-																						echo "</td>";
-																						
-																						//Used to view employees profile
-																						echo "<td>";
-																							echo "<form action='view-profile.php' method='post'>";
-																								echo "<input type='hidden' name='chosenUsername' value='" . $rowEmployeeQuery['username'] . "'>";
-																								echo "<input type='submit' value='View'>";
-																							echo "</form>";
-																						echo "</td>";
+																						//If the logged in user is the manager of the project
+																						if(strcasecmp($username, $row["managerUsername"]) == 0) {
+																							//Used to send a message directly to an employee
+																							echo "<td>";
+																								echo "<form action='' method='post'>";
+																									echo "<input type='hidden' name='chosenUsername' value='" . $rowEmployeeQuery['username'] . "'>";
+																									echo "<input type='submit' value='Message'>";
+																								echo "</form>";
+																							echo "</td>";
+																							
+																							//Used to view employees profile
+																							echo "<td>";
+																								echo "<form action='view-profile.php' method='post'>";
+																									echo "<input type='hidden' name='chosenUsername' value='" . $rowEmployeeQuery['username'] . "'>";
+																									echo "<input type='submit' value='View'>";
+																								echo "</form>";
+																							echo "</td>";
+																						}
 																					echo "</tr>";
 																					
 																					$activeFlag++;
