@@ -140,18 +140,7 @@
 									
 									echo "<div class='user-profile-details'>";
 									
-									$jobID = $_POST["jobID"];															
-									$servername = "localhost";
-									$username = "jrg2";
-									$password = "password";
-									$database = "jrg2";
-												
-									$conn = new mysqli($servername, $username, $password, $database);
-												
-									//Check connection
-									if($conn->connect_error) {
-										die("Connection to MySQL failed %s </br>" . $conn->connect_error);
-									}
+									$jobID = $_POST["jobID"];								
 												
 									$sql1 = "SELECT * FROM job WHERE jobID = " . $jobID;
 									$result1 = $conn->query($sql1);
