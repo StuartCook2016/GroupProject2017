@@ -1,8 +1,8 @@
 Manager
 	createProject - Stuart By Wed (Finished except for details text area)
 	editProject - Stuart By Wed(code is done but unable to test until the view project is finished)
-	createJob - Stuart By Wed
-	editJob - Stuart By Wed
+	createJob - Stuart By Wed(Shouldn't take long but need to ask Ryan some questions about the database)
+	editJob - Stuart By Wed(Shouldn't take long but need to ask Ryan some questions about the database)
 	viewProject - Ryan
 		-> view jobs
 	viewApplicationsToJob - Wednesday/Thursday Both of us
