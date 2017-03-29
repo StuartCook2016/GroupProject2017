@@ -210,6 +210,11 @@
 																<?php	
 																}
 																?>
+																	<div class="search-button">
+																		<form action="create-job.php" method="post">
+																			<input type="submit" value="Add Job">
+																		</form>
+																	</div>
 															</div>
 														</div>
 														<div class="user-profile-skrill">
@@ -225,14 +230,14 @@
 																		
 																		<?php																							
 																			$employeeQuery = "SELECT t1.username, title FROM "
-																							. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1"
+																							. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1 "
 																							. "INNER JOIN "
-																							. "(SELECT e.username, title FROM employee AS e, job AS j WHERE e.username=j.username) t2"
+																							. "(SELECT e.username, title FROM employee AS e, job AS j WHERE e.username=j.username) t2 "
 																							. "ON t1.username = t2.username";
 																			$resultEmployeeQuery = $conn->query($employeeQuery);
 																			
 																			//if there are results
-																			if($resultsEmployeeQuery->num_rows > 0) {
+																			if($resultEmployeeQuery->num_rows > 0) {
 
 																				$activeFlag = 0;
 																				while($rowEmployeeQuery = $resultProjectsQuery->fetch_assoc()) {
@@ -283,10 +288,15 @@
 																		</tr>
 																		
 																		<?php
-																			$jobsQuery = "SELECT jobID, title, username, contractType, startDate, endDate FROM "
+																			/*$jobsQuery = "SELECT j.jobID, j.title, j.username, j.contractType, j.startDate, j.endDate FROM "
 																						. "job AS j, projects AS p "
 																						. "WHERE j.projID=p.projID "
-																						. "AND projID=" . $projID;
+																						. "AND j.projID=" . $projID;*/
+																						
+																			//Simpler version of above query
+																			$jobsQuery = "SELECT jobID, title, username, contractType, startDate, endDate FROM "
+																						. "job AS j "
+																						. "WHERE j.projID=" . $projID;
 																			
 																			$resultJobsQuery = $conn->query($jobsQuery);
 																			
@@ -294,13 +304,13 @@
 																			if($resultJobsQuery->num_rows > 0){
 																				
 																				$activeFlag = 0;
-																				while($rowJobsQuery = $resultEmployeeQuery->fetch_assoc()) {
+																				while($rowJobsQuery = $resultJobsQuery->fetch_assoc()) {
 																					
 																					//Used to display alternating colours in table rows
 																					if($activeFlag % 2 == 0) {
 																						echo "<tr>";
 																					} else {
-																						echo "<tr class='active'">;
+																						echo "<tr class='active'>";
 																					}
 																					
 																						echo "<td>" . $rowJobsQuery['title'] . "</td>";
@@ -329,9 +339,9 @@
 																	<label for="broadcast">Broadcast a message</label>
 																	<form action="messageBroadcast.php" method="post">
 																		<?php
-																		if(isset($_SESSION['broadcast']) && !empty($_SESSION['broadcast'])) {
+																		if(isset($_SESSION['broadcast'])) {
 																			
-																			if(strcasecmp($_SESSION['broadcast'], "success") = 0) {
+																			if(strcasecmp($_SESSION['broadcast'], "success") == 0) {
 																				echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'>Your message has been sent</textarea>";
 																				unset($_SESSION['broadcast']);
 																			} else {
@@ -342,7 +352,7 @@
 																			echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'></textarea>";
 																		}
 																		
-																		echo "<input type='hidden' name='projID' value='" . $_SESSION['projID'] . "'>";
+																		echo "<input type='hidden' name='projID' value='" . $_POST['projID'] . "'>";
 																		?>
 																		<div class="search-button">
 																		<!--this is for submitting the broadcast -->
@@ -362,11 +372,19 @@
 						</div>
 					</div>
 				</div>
-														
-			
 		<?php
 			}
 		?>
+		
+		<div class='footer-dark'>
+			<footer>
+				<div class='container'>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
+					</div>
+				</div>
+			</footer>
+		</div>
 		
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
