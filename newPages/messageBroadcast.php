@@ -40,7 +40,7 @@
 			$sendMessageQuery = "INSERT INTO messages "
 								. "(senderUsername, receiverUsername, message, dateSent) "
 								. "VALUES "
-								. "('" . $_SESSION['username'] . "', '" . $row['username') . "', '" . $broadcast . "', " . date("Y/m/d");
+								. "('" . $_SESSION['username'] . "', '" . $row['username'] . "', '" . $broadcast . "', " . date("Y/m/d") . ")";
 			$resultSendMessageQuery = $conn->query($sendMessageQuery);
 		}
 		

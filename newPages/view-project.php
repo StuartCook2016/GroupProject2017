@@ -244,8 +244,7 @@
 																						echo "<tr class='active'>";
 																					}																					
 																						echo "<td>" . $rowEmployeeQuery['username'] . "</td>";
-																						echo "<td>" . $rowEmployeeQuery['title'] . "</td>"
-																						echo "<td>" . $rowEmployeeQuery[''] . "</td>"
+																						echo "<td>" . $rowEmployeeQuery['title'] . "</td>";
 																						
 																						//Used to send a message directly to an employee
 																						echo "<td>";
