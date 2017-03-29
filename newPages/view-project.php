@@ -207,6 +207,7 @@
 																			<input type="submit" value="Edit Project">
 																		</form>
 																	</div>
+																<?php	
 																}
 																?>
 															</div>
@@ -224,7 +225,7 @@
 																		
 																		<?php																							
 																			$employeeQuery = "SELECT t1.username, title FROM "
-																							. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . "j.projID=p.projID) t1"
+																							. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1"
 																							. "INNER JOIN "
 																							. "(SELECT e.username, title FROM employee AS e, job AS j WHERE e.username=j.username) t2"
 																							. "ON t1.username = t2.username";
@@ -311,7 +312,7 @@
 																						
 																						echo "<td>";
 																							echo "<form action='view-job.php' method='post'>";
-																								echo "<input type='hidden' name='jobID' value='" . $rowJobsQuery['jobID'] . "'";
+																								echo "<input type='hidden' name='jobID' value='" . $rowJobsQuery['jobID'] . "'>";
 																								echo "<input type='submit' value='View'>";
 																							echo "</form>";
 																						echo "</td>";
@@ -325,6 +326,31 @@
 																</div>
 																</br>
 																</br>
+																<div single-employee-form>
+																	<label for="broadcast">Broadcast a message</label>
+																	<form action="messageBroadcast.php" method="post">
+																		<?php
+																		if(isset($_SESSION['broadcast']) && !empty($_SESSION['broadcast'])) {
+																			
+																			if(strcasecmp($_SESSION['broadcast'], "success") = 0) {
+																				echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'>Your message has been sent</textarea>";
+																				unset($_SESSION['broadcast']);
+																			} else {
+																				echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'>Your message failed to send. Please try againt</textarea>";
+																				unset($_SESSION['broadcast']);
+																			}																			
+																		} else {
+																			echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'></textarea>";
+																		}
+																		
+																		echo "<input type='hidden' name='projID' value='" . $_SESSION['projID'] . "'>";
+																		?>
+																		<div class="search-button">
+																		<!--this is for submitting the broadcast -->
+																		<input type="submit" name ="Submit" value ="Send Broadcast">																			
+																	</div>	
+																	</form>
+																</div>
 															</div>
 														</div>
 													</div>
