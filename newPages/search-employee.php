@@ -84,10 +84,6 @@
 									die("Connection to MySQL failed %s </br>" . $conn->connect_error);
 								}
 								
-								if(!isset($_SESSION["username"]) || empty($_SESSION["username"])) {									
-									die("You do not have permission to access this page");					
-								}
-								
 								$username = $_SESSION["username"];
 								
 								$positionQuery = "SELECT position FROM accdetails AS a WHERE a.username = '" . $username . "'";
@@ -155,27 +151,57 @@
 														<input class='employeeUsername' id='employeeUsername' name='employeeUsername' type='text' maxlength='20'>													
 													</div>
 													<div class='single-left-search'>
-														<label for='sdate'>Location:</label>												
-													</div>				
+														<label for='city'>City:</label>
+														<?php
+															$cityQuery = "SELECT DISTINCT city FROM employee";
+															$result = $conn->query($cityQuery);
+															
+															if($result->num_rows > 0) {
+																
+																echo "<select id='city' name='city'>";
+																
+																//Add Any as option so user does not have to choose
+																//specific city
+																echo "<option>Any</option>";
+																
+																//Add each city as an option
+																while($row = $result->fetch_assoc()) {
+																	echo "<option>" . $row['city'] . "</option>";
+																}
+																
+																echo "</select>";
+															}
+															
+														?>
+													</div>
+													<div class='single-left-search'>
+														<label for='country'>Country:</label>
+														<?php
+															$countryQuery = "SELECT DISTINCT country FROM employee";
+															$result = $conn->query($countryQuery);
+															
+															if($result->num_rows > 0) {
+																
+																echo "<select id='country' name='country'>";
+																
+																//Add Any as option so user does not have to choose
+																//specific country
+																echo "<option>Any</option>";
+																
+																//Add each country as an option
+																while($row = $result->fetch_assoc()) {
+																	echo "<option>" . $row['country'] . "</option>";
+																}
+																
+																echo "</select>";
+															}
+															
+														?>
+													</div>													
 													<div class='single-left-search'>														
 														<label for='skillReq'>Required Skill:</label>
 														<?php
-															
-															//Get the username of logged in user
-															$username = $_SESSION['username'];															
-															
-															$servername = "localhost";
-															$connUsername = "jrg2";
-															$password = "password";
-															$database = "jrg2";
-															
-															$conn = new mysqli($servername, $connUsername, $password, $database);
-															
-															//Check connection
-															if($conn->connect_error) {
-																die("Connection to MySQL failed %s </br>" . $conn->connect_error);
-															}
-															
+																																													
 															$skillsQuery = "SELECT * FROM skills";
 															$result = $conn->query($skillsQuery);
 															
@@ -193,7 +219,7 @@
 																}
 															
 																echo"</select>";
-															}															
+															}														
 														?>
 													</div>													
 													<div class='single-left-search'>												
@@ -221,14 +247,6 @@
 															}															
 														 ?>														  															
 													</div>
-													<div class='single-left-search'>													
-														<!--willing to relocate-->														
-														<label for='wrlocate'>Employee Willing to Relocate:</label>
-														<!-- Still to implement this -->
-														<!-- Still to implement this -->
-														<!-- Still to implement this -->
-														<!-- Still to implement this -->
-													</div>
 													<div class='search-button'>
 														<!--button returns the results of the search-->
 														<input class='blueButton' type='submit' value='Search'>
@@ -244,12 +262,13 @@
 														//Used to store query used to display results
 														$sql = "";														
 														
-														var_dump($_POST);
 														//Check if all required POST variables are set and not empty
 														//Cannot perform empty check on first 3 since they can be empty
 														if(isset($_POST['employeeFName']) &&
 															isset($_POST['employeeLName']) &&
 															isset($_POST['employeeUsername']) &&
+															isset($_POST['city']) && !empty($_POST['city']) &&
+															isset($_POST['country']) && !empty($_POST['country']) &&
 															isset($_POST['skillReq']) && !empty($_POST['skillReq']) &&
 															isset($_POST['empProject']) && !empty($_POST['empProject'])) {
 															//location check needs to be added to above condition
@@ -257,6 +276,8 @@
 															$employeeFName = $_POST['employeeFName'];
 															$employeeLName = $_POST['employeeLName'];
 															$employeeUsername = $_POST['employeeUsername'];
+															$city = $_POST['city'];
+															$country = $_POST['country'];
 															$skillReq = $_POST['skillReq'];
 															$empProject = $_POST['empProject'];
 															
@@ -281,10 +302,19 @@
 																$sql = $sql . " AND e.username = '" . $employeeLName . "'";																										
 															}
 															
+															//if the city specified is not any
+															if(strcasecmp($city, 'any') != 0) {
+																$sql = $sql . " AND e.city = '" . $city . "'";															
+															}
+															
+															//if the country specified is not any
+															if(strcasecmp($country, 'any') != 0) {
+																$sql = $sql . " AND e.country = '" . $country . "'";															
+															}
+															
 															//if the project specified is not any
 															if(strcasecmp($empProject, 'any') != 0) {
-																$sql = $sql . " AND p.projName = " . $empProject;
-															
+																$sql = $sql . " AND p.projName = '" . $empProject . "'";															
 															}
 															
 															//if the skill required specified is not any

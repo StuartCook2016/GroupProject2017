@@ -4,9 +4,15 @@ Manager
 	createJob - Stuart By Wed(Shouldn't take long but need to ask Ryan some questions about the database)
 	editJob - Stuart By Wed(Shouldn't take long but need to ask Ryan some questions about the database)
 	viewProject - Ryan
-		-> view jobs
-	viewApplicationsToJob - Wednesday/Thursday Both of us
+		-> Needs testing
+	view-job -> Need to fix apply button
+	viewApplicationsToJob - Wednesday/Thursday B
+	search-employee needs testing once we have data
 	
+	Send a message - Thursday
+		-> send direct messages to a username
+		-> send broadcast message to all users assigned to a project
+
 	
 Employee
 	applications page shows the approved jobs, offers the employee an accept or decline
@@ -15,12 +21,13 @@ Employee
 	If you've been declined just have a remove button to say you've seen the status and it will
 	remove the application from the table
 	
-	fix apply to job button in view-job.php - Ryan Maybe Monday
-	
+	fix apply to job button in view-job.php - Ryan Maybe Monday 
+  
 	edit-profile
 		-> Table showing up skills - Ryan Monday
 		
 	need a UI for editedProfile_db.php - Ryan Monday
+
 	
 	Need a forgotten password page - Ryan Monday
 		-> asks for username + email address
