@@ -130,8 +130,15 @@
 		</div>
 
 		<?php
-		
-			$projID = $_POST["projID"];
+			
+			//check projID has been posted
+			if(isset($_POST['projID']) && !empty($_POST['projID'])) {
+				$projID = $_POST["projID"];
+			} else {
+				//projID is in SESSION
+				$projID = $_SESSION["projID"];
+			}
+			
 		
 			$projectsQuery = "SELECT * FROM projects WHERE projID=" . $projID;
 			$resultProjectsQuery = $conn->query($projectsQuery);
@@ -256,7 +263,7 @@
 																						if(strcasecmp($username, $row["managerUsername"]) == 0) {
 																							//Used to send a message directly to an employee
 																							echo "<td>";
-																								echo "<form action='' method='post'>";
+																								echo "<form action='#' method='post'>";
 																									echo "<input type='hidden' name='chosenUsername' value='" . $rowEmployeeQuery['username'] . "'>";
 																									echo "<input type='submit' value='Message'>";
 																								echo "</form>";
@@ -342,13 +349,14 @@
 																<div single-employee-form>
 																	<label for="broadcast">Broadcast a message</label>
 																	<form action="messageBroadcast.php" method="post">
-																		<?php
+																		<?php			
+																		var_dump($_SESSION);
 																		if(isset($_SESSION['broadcast'])) {
 																			
 																			if(strcasecmp($_SESSION['broadcast'], "success") == 0) {
 																				echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'>Your message has been sent</textarea>";
 																				unset($_SESSION['broadcast']);
-																			} else {
+																			} else if(strcasecmp($_SESSION['broadcast'], "failed") == 0) {
 																				echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'>Your message failed to send. Please try againt</textarea>";
 																				unset($_SESSION['broadcast']);
 																			}																			
@@ -378,6 +386,7 @@
 				</div>
 		<?php
 			}
+			unset($_SESSION['projID']);
 		?>
 		
 		<div class='footer-dark'>

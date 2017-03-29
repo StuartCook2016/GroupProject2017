@@ -49,6 +49,7 @@
 		$_SESSION['broadcast'] = 'failed';
 	}
 	
+	$_SESSION['projID'] = $projID;
 	
 	header('Location: view-project.php');
 ?>
