@@ -1,5 +1,5 @@
 Manager
-	createProject - Stuart By Wed
+	createProject - Stuart By Wed (Finished except for details text area)
 	editProject - Stuart By Wed
 	createJob - Stuart By Wed
 	editJob - Stuart By Wed
