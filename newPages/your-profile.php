@@ -248,6 +248,7 @@
 																			</table>
 																		</div>
 																		</br>
+																		</br>
 																		<!--past projects-->
 																		<div class='single-employee-form'>
 																			<table align='center'>																				
@@ -289,7 +290,7 @@
 																								echo "<td>";
 																									echo "<form action='view-project.php' method='post'>";
 																										echo "<input type='hidden' name='projID' value='" . $rowProjects['projID'] . "'>";
-																										echo "<input type='submit' value='View'>";
+																										echo "<input type='submit' value='View'>";																										
 																									echo "</form>";
 																								echo "</td>";
 																								
@@ -308,6 +309,7 @@
 																				?>																			
 																			</table>
 																		</div>
+																		</br>
 																		</br>
 																		<!--additional info-->
 
