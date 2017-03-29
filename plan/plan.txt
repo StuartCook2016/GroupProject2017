@@ -4,8 +4,11 @@ Manager
 	createJob - Stuart By Wed
 	editJob - Stuart By Wed
 	viewProject - Ryan
-		-> view jobs
+		-> Needs testing
+	view-job -> Need to fix apply button
 	viewApplicationsToJob - Wednesday/Thursday Both of us
+	
+	search-employee needs testing once we have data
 	
 	Send a message - Thursday
 		-> send direct messages to a username
@@ -20,8 +23,6 @@ Employee
 	remove the application from the table
 	
 	fix apply to job button in view-job.php - Ryan Maybe Monday
-		
-	need a UI for editedProfile_db.php - Ryan Monday
 	
 	Password Pages - These are both finished but need further testing and needstyling fixes
 		
