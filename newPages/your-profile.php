@@ -331,7 +331,17 @@
 					}
 				}
 			}
-		?>	    
+		?>
+		
+		<div class='footer-dark'>
+			<footer>
+				<div class='container'>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
+					</div>
+				</div>
+			</footer>
+		</div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

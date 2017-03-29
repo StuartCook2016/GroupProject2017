@@ -210,6 +210,11 @@
 																<?php	
 																}
 																?>
+																	<div class="search-button">
+																		<form action="create-job.php" method="post">
+																			<input type="submit" value="Add Job">
+																		</form>
+																	</div>
 															</div>
 														</div>
 														<div class="user-profile-skrill">
@@ -300,7 +305,7 @@
 																					if($activeFlag % 2 == 0) {
 																						echo "<tr>";
 																					} else {
-																						echo "<tr class='active'">;
+																						echo "<tr class='active'>";
 																					}
 																					
 																						echo "<td>" . $rowJobsQuery['title'] . "</td>";
@@ -362,11 +367,19 @@
 						</div>
 					</div>
 				</div>
-														
-			
 		<?php
 			}
 		?>
+		
+		<div class='footer-dark'>
+			<footer>
+				<div class='container'>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
+					</div>
+				</div>
+			</footer>
+		</div>
 		
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
