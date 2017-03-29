@@ -73,7 +73,7 @@
 										<div class='single-employee'>
 											<!--links to pages-->												
 											<div class='create-new-project'>
-												<a href='create-project.html'>Create New Project</a>
+												<a href='createProject.php'>Create New Project</a>
 											</div>
 											<div class='view-managed-project'>
 												<a href='manage-project.html'>View Managed Projects</a>
