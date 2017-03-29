@@ -44,3 +44,5 @@ All pages
 	Any tables
 		- fill space with empty rows
 		
+	Add button along nav-bar to view all job applications as a manager
+		meaning all applications to projects that the manager owns
