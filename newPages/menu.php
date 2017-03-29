@@ -17,9 +17,10 @@
 
         <link href='css/bootstrap.min.css' rel='stylesheet'>
         <link href='css/font-awesome.min.css' rel='stylesheet'>
-        <link href='style.css' rel='stylesheet'>
-        <link href='style2.css' rel='stylesheet'>
-        <link href='css/responsive.css' rel='stylesheet'>
+		<link href='style2.css' rel='stylesheet'>
+		<link href='style.css' rel='stylesheet'>
+		<link href='css/responsive.css' rel='stylesheet'>
+        
 
         <link href='https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext' rel='stylesheet'> 
 
@@ -251,14 +252,12 @@
 			</div>
 		</div>
 		  
-			
+		
 		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
 					<div class='row'>
-						<div class='copyright'>
-							<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
-						</div>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
 					</div>
 				</div>
 			</footer>
