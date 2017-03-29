@@ -176,16 +176,16 @@ catch(PDOException $e)
 			</div>
 		</div>
 		
-		<div class='footer-dark'>
-			<footer>
-				<div class='container'>
-					<div class='row'>	
-						<div class='copyright'>
+		<div class='footer-margin'>
+			<div class='footer-dark'>
+				<footer>
+					<div class='container'>
+						<div class='row'>
 							<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
 						</div>
 					</div>
-				</div>
-			</footer>
+				</footer>
+			</div>
 		</div>
 		
         <script src="js/jquery.min.js"></script>
