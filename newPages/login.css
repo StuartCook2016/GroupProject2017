@@ -13,13 +13,19 @@ h2{
   font-size:35px;
 }
 
-
 .login-login h2{
   margin-left:110px;
   size:32px;
   color:#b3b3b3;
   margin-bottom: 60px;
   margin-top:0;
+}
+
+.login-login img {
+	height: 50%;
+	width: 60%;
+	margin-bottom: 40px;
+	margin-left: 75px;
 }
 
 .user-name input, .user-password input {
