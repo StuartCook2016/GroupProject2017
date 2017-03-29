@@ -246,27 +246,34 @@
 										
 										//Button allows user to apply to project
 										//This needs to be changed
-										echo "<div class='apply-button'>";
-											echo "<button type='submit'>Apply to Job</button>";
-										echo "</div>";
+										
+										$vacantQuery = "SELECT username FROM "
+														. "job AS j "
+														. "WHERE j.jobID=" . $jobID;
+										$resultVacantQuery = $conn->query($vacantQuery);
+										
+										if($resultVacantQuery->num_rows > 0) { 
+										
+											
+											$rowVacantQuery = $resultVacantQuery->fetch_assoc();
+											
+											echo $rowVacantQuery['username'];
+											
+											if(strcasecmp($rowVacantQuery['username'], "") == 0) {
+												echo "<div class='search-button'>";
+													echo "<form action='apply-to-job.php' method='post'>";
+														echo "<input type='hidden' name='jobID' value='" . $jobID . "'>";
+														echo "<input type='submit' value='Apply to Job'>";
+													echo "</form>";
+												echo "</div>";
+											}
+										}
 									
 									} else {
 										echo "Something went wrong.</br></br></br>";
 									}
-											
-									echo "</div>";
-									
-									//info about current project text
-									echo "<div class='user-profile-skill'>";	
-										echo "<div class='two-button'>";
-											echo "<div class='submit-change'>";
-												echo "<div class='return-button'>";
-													echo "<a href='job-search.php'>Return to Job Search</a>";
-												echo "</div>";
-											echo "</div>";											
-										echo "</div>";										                                          
-									echo "</div>";									
-								?>								
+									?>		
+								</div>																		
 							</div>
 						</div>
 					</div>
