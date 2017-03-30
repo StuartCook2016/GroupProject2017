@@ -22,10 +22,12 @@
 	
 	//Get all employee's on this project
 	$recieverQuery = "SELECT t1.username FROM "
-					. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1"
+					. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1 "
 					. "INNER JOIN "
-					. "(SELECT e.username FROM employee AS e, job AS j WHERE e.username=j.username) t2"
+					. "(SELECT e.username FROM employee AS e, job AS j WHERE e.username=j.username) t2 "
 					. "ON t1.username = t2.username";
+	
+	echo $recieverQuery;
 	
 	$resultReceiverQuery = $conn->query($recieverQuery);
 	
@@ -36,11 +38,13 @@
 		$broadcast = $conn->real_escape_string($broadcast);
 		
 		while($row = $resultReceiverQuery->fetch_assoc()) {
-			
+			echo "</br>";
 			$sendMessageQuery = "INSERT INTO messages "
 								. "(senderUsername, receiverUsername, message, dateSent) "
 								. "VALUES "
-								. "('" . $_SESSION['username'] . "', '" . $row['username'] . "', '" . $broadcast . "', " . date("Y/m/d") . ")";
+								. "('" . $_SESSION['username'] . "', '" . $row['username'] . "', '" . $broadcast . "', '" . gmdate("Y/m/d") . "')";
+			
+			echo $sendMessageQuery;
 			$resultSendMessageQuery = $conn->query($sendMessageQuery);
 		}
 		

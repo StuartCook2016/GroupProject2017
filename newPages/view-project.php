@@ -350,7 +350,7 @@
 																	<label for="broadcast">Broadcast a message</label>
 																	<form action="messageBroadcast.php" method="post">
 																		<?php			
-																		var_dump($_SESSION);
+																		
 																		if(isset($_SESSION['broadcast'])) {
 																			
 																			if(strcasecmp($_SESSION['broadcast'], "success") == 0) {
@@ -364,7 +364,7 @@
 																			echo "<textarea class='ainformaitons' id='broadcast' name='broadcast' style='resize: none;'></textarea>";
 																		}
 																		
-																		echo "<input type='hidden' name='projID' value='" . $_POST['projID'] . "'>";
+																		echo "<input type='hidden' name='projID' value='" . $projID . "'>";
 																		?>
 																		<div class="search-button">
 																		<!--this is for submitting the broadcast -->
