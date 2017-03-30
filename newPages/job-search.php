@@ -445,17 +445,7 @@
 														$sql = "";
 														
 														//Check if all required POST variables are set and not empty
-														if(isset($_POST['jobTitle']) && !empty($_POST['jobTitle']) &&
-															isset($_POST['contractType']) && !empty($_POST['contractType']) &&
-															isset($_POST['skillReq']) && !empty($_POST['skillReq']) &&
-															isset($_POST['minSalary']) && !empty($_POST['minSalary']) &&
-															isset($_POST['maxSalary']) && !empty($_POST['maxSalary']) &&
-															isset($_POST['start-date1']) && !empty($_POST['start-date1']) &&
-															isset($_POST['start-date2']) && !empty($_POST['start-date2']) &&
-															isset($_POST['end-date1']) && !empty($_POST['end-date1']) &&
-															isset($_POST['end-date2']) && !empty($_POST['end-date2']) && 
-															isset($_POST['city']) && !empty($_POST['city']) && 
-															isset($_POST['country']) && !empty($_POST['country'])) {
+														if(isset($_POST)) {
 															
 														
 															$jobTitle = $_POST["jobTitle"];
@@ -470,7 +460,10 @@
 															$city = $_POST['city'];
 															$country = $_POST['country'];
 														
-															$sql = "SELECT * FROM job AS j, projects AS p WHERE j.username IS NULL";
+															$sql = "SELECT j.jobID, j.title, j.contractType, j.startDate, j.endDate, p.city, p.country, j.salary FROM "
+																	. "job AS j, projects AS p "
+																	. "WHERE j.username IS NULL "
+																	. "AND j.projID=p.projID";
 															
 															//if the title specified is not any
 															if(strcasecmp($jobTitle, 'any') != 0) {
@@ -510,14 +503,13 @@
 															//if the skill required specified is not any
 															if(strcasecmp($skillReq, 'any') != 0) {									
 																//Query becomes a join if user requests a specific skill
-																$sql = "SELECT * FROM ( " . $sql . ") t1 INNER JOIN ( SELECT * FROM jobskills AS s WHERE s.skillName = '" . $skillReq . "') t2 ON t1.jobID = t2.jobID";
-																echo $sql;
+																$sql = "SELECT t1.jobID, t1.title, t1.contractType, t1.startDate, t1.endDate, t1.city, t1.country, t1.salary FROM ( " . $sql . ") t1 INNER JOIN ( SELECT * FROM jobskills AS s WHERE s.skillName = '" . $skillReq . "') t2 ON t1.jobID = t2.jobID";
 															}
 																								
 														//The POST variables are not set
 														} else {															
-															$sql = "SELECT * FROM job WHERE job.username IS NULL";
-														}	
+															$sql = "SELECT * FROM job AS j, projects AS p WHERE j.username IS NULL AND j.projID = p.projID";
+														}
 														
 														$result = $conn->query($sql);
 														
