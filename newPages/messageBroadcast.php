@@ -24,7 +24,7 @@
 	$recieverQuery = "SELECT t1.username FROM "
 					. "(SELECT username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1 "
 					. "INNER JOIN "
-					. "(SELECT e.username FROM employee AS e, job AS j WHERE e.username=j.username) t2 "
+					. "(SELECT DISTINCT e.username FROM employee AS e, job AS j WHERE e.username=j.username) t2 "
 					. "ON t1.username = t2.username";
 	
 	echo $recieverQuery;
