@@ -248,19 +248,71 @@
 																}										
 															echo "</div>";
 
-															//location is searched combo box
-															//Need to rethink this
+															//city is searched combo box
 															echo "<div class='single-left-search'>";
-																echo "<label for='location'>Location:</label>";
-																//Fill this from database
-																//<select id='location'>
+																echo "<label for='city'>City:</label>";
 																
-																	//Add Any as option so user does not have to choose 
-																	//specific location
-																	//echo "<option>Any</option>";
+																$sql = "SELECT DISTINCT city FROM "
+																	. "job AS j, projects AS p " 
+																	. "WHERE j.projID=p.projID "
+																	. "ORDER BY city";
+																$result = $conn->query($sql);
+																
+																if($result->num_rows > 0) {
 																	
-																//</select>
+																	echo "<select id='city' name='city'>";
+																	
+																	//Add Any as option so user does not have to choose 
+																	//specific city
+																	echo "<option>Any</option>";
+																	
+																	//Add each city as an option
+																	while($row = $result->fetch_assoc()) {
+																		
+																		//If there are post variables then remember the search parameters
+																		if(isset($_POST["city"]) && $_POST["city"] === $row['city']) {
+																			echo "<option selected='selected'>" . $row['city'] . "</option>";																	
+																		} else {																
+																			echo "<option>" . $row['city'] . "</option>";
+																		}
+																	}
+																	
+																	echo "</select>";
+																}
 															echo "</div>";
+															
+															//country is searched combo box
+															echo "<div class='single-left-search'>";
+																echo "<label for='country'>Country:</label>";
+																
+																$sql = "SELECT DISTINCT country FROM "
+																	. "job AS j, projects AS p " 
+																	. "WHERE j.projID=p.projID "
+																	. "ORDER BY country";
+																$result = $conn->query($sql);
+																
+																if($result->num_rows > 0) {
+																	
+																	echo "<select id='country' name='country'>";
+																	
+																	//Add Any as option so user does not have to choose 
+																	//specific country
+																	echo "<option>Any</option>";
+																	
+																	//Add each country as an option
+																	while($row = $result->fetch_assoc()) {
+																		
+																		//If there are post variables then remember the search parameters
+																		if(isset($_POST["country"]) && $_POST["country"] === $row['country']) {
+																			echo "<option selected='selected'>" . $row['country'] . "</option>";																	
+																		} else {																
+																			echo "<option>" . $row['country'] . "</option>";
+																		}
+																	}
+																	
+																	echo "</select>";
+																}
+															echo "</div>";															
 															
 															echo "<div class='single-left-search'>";
 																//salary is searched combo box
@@ -401,8 +453,10 @@
 															isset($_POST['start-date1']) && !empty($_POST['start-date1']) &&
 															isset($_POST['start-date2']) && !empty($_POST['start-date2']) &&
 															isset($_POST['end-date1']) && !empty($_POST['end-date1']) &&
-															isset($_POST['end-date2']) && !empty($_POST['end-date2'])) {
-															//location check needs to be added to above condition
+															isset($_POST['end-date2']) && !empty($_POST['end-date2']) && 
+															isset($_POST['city']) && !empty($_POST['city']) && 
+															isset($_POST['country']) && !empty($_POST['country'])) {
+															
 														
 															$jobTitle = $_POST["jobTitle"];
 															$contractType = $_POST["contractType"];
@@ -412,9 +466,11 @@
 															$minStartDate = $_POST["start-date1"];
 															$maxStartDate = $_POST["start-date2"];
 															$minEndDate = $_POST["end-date1"];
-															$maxEndDate = $_POST["end-date2"];														
+															$maxEndDate = $_POST["end-date2"];	
+															$city = $_POST['city'];
+															$country = $_POST['country'];
 														
-															$sql = "SELECT * FROM job AS j WHERE j.username IS NULL";
+															$sql = "SELECT * FROM job AS j, projects AS p WHERE j.username IS NULL";
 															
 															//if the title specified is not any
 															if(strcasecmp($jobTitle, 'any') != 0) {
@@ -431,6 +487,17 @@
 																																
 															}
 															
+															//if the city specified is not any
+															if(strcasecmp($city, 'any') != 0) {
+																//append section of query containing city
+																$sql = $sql . " AND p.city = '" . $city . "'";
+															}
+															
+															//if the country specified is not any
+															if(strcasecmp($country, 'any') != 0) {
+																//append section of query containing country
+																$sql = $sql . " AND p.country = '" . $country . "'";
+															}
 															
 															//append section of query calculating salaries within range
 															$sql = $sql . " AND j.salary BETWEEN " . $minSalary . " AND " . $maxSalary;													
@@ -444,8 +511,9 @@
 															if(strcasecmp($skillReq, 'any') != 0) {									
 																//Query becomes a join if user requests a specific skill
 																$sql = "SELECT * FROM ( " . $sql . ") t1 INNER JOIN ( SELECT * FROM jobskills AS s WHERE s.skillName = '" . $skillReq . "') t2 ON t1.jobID = t2.jobID";
+																echo $sql;
 															}
-																											
+																								
 														//The POST variables are not set
 														} else {															
 															$sql = "SELECT * FROM job WHERE job.username IS NULL";
@@ -462,7 +530,8 @@
 																	echo "<th>Contract Type</th>";
 																	echo "<th>Start Date</th>";
 																	echo "<th>End Date</th>";
-																	echo "<th>Location</th>";
+																	echo "<th>City</th>";
+																	echo "<th>Country</th>";
 																	echo "<th>Salary</th>";
 																	echo "<th>View</th>";
 																echo "</tr>";
@@ -481,7 +550,8 @@
 																		echo "<td>" . $row['contractType'] . "</td>"; 
 																		echo "<td>" . $row['startDate'] . "</td>";
 																		echo "<td>" . $row['endDate'] . "</td>";
-																		echo "<td></td>"; //To echo location once developed
+																		echo "<td>" . $row['city'] . "</td>";
+																		echo "<td>" . $row['country'] . "</td>";
 																		echo "<td>" . $row['salary'] . "</td>";
 																		
 																		echo "<td>";
@@ -498,7 +568,7 @@
 															echo "</table>";
 															echo "</br>"; echo "</br>";
 														} else {
-															echo "There were no projects that matched your search criteria. </br>";
+															echo "There were no jobs that matched your search criteria. </br>";
 														}
 														
 													echo "</div>";
