@@ -42,7 +42,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -211,12 +211,13 @@
 																?>
 																	<div class="search-button">
 																		<form action="edit-project.php" method="post">
+																			<input type="hidden" name='projID' value="<?php echo $row["projID"];?>">
 																			<input type="submit" value="Edit Project">
 																		</form>
 																	</div>																	
 																
 																	<div class="search-button">
-																		<form action="create-job.php" method="post">
+																		<form action="create-job.php" method="post">																			
 																			<input type="submit" value="Add Job">
 																		</form>
 																	</div>
