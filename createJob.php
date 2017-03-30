@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Create A Project</title>
+        <title>Create A Job</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
                     <div class="col-md-5 col-sm-5">
                         <div class="header">
                             <div class="header-logo">
-                                <h1>Create A Project</h1>
+                                <h1>Create A Job</h1>
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@ $projID=$_POST['projID'];
 
                                                 <div class="user-profile-skrill">
                                                     <div class="user-skill-details">
-                                                        <textarea class="pprojects" id="pproject" name="post-project" placeholder="Additional Project Information"></textarea>
+                                                        <textarea class="pprojects" id="pproject" name="details" ></textarea>
                                                     </div>
                                                     <div class="two-button">
                                                         <div class="submit-change">
