@@ -98,19 +98,19 @@
                                                             <label for="plocation">Door Number:</label>
 															<input class="ptypes" id="doorNumber" name="doorNumber" type="text">
 														</div>
-                                                          <div class="single-users-profile">
+                                                        <div class="single-users-profile">
                                                             <label for="plocation">Street:</label>
 															<input class="ptypes" id="street" name="street" type="text">
 														</div>
-														      <div class="single-users-profile">
+														<div class="single-users-profile">
                                                             <label for="plocation">City:</label>
 															<input class="ptypes" id="city" name="city" type="text">
 														</div>
-														 <div class="single-users-profile">
+														<div class="single-users-profile">
                                                             <label for="plocation">Country:</label>
 															<input class="ptypes" id="pLocation" name="projectLocation" type="text">
 														</div>
-														  <div class="single-users-profile">
+														<div class="single-users-profile">
                                                             <label for="plocation">Postcode:</label>
 															<input class="ptypes" id="postcode" name="postcode" type="text">
 														</div>
