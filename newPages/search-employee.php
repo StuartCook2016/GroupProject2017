@@ -347,6 +347,7 @@
 																		echo "<th>Last Name</th>";																																		
 																		echo "<th>Email Address</th>";
 																		echo "<th>Contact Number</th>";
+																		echo "<th>View Profile</th>";
 																echo "</tr>";
 															
 																while($row = $result->fetch_assoc()) {
@@ -360,7 +361,7 @@
 																		
 																		echo "<td>";
 																				echo "<form action='view-profile.php' method='post'>";
-																					echo "<input type='hidden' name='employeeUsernameClicked' value='" . $row['username'] . "'>";
+																					echo "<input type='hidden' name='chosenUsername' value='" . $row['username'] . "'>";
 																					echo "<input class='blueButton' type='submit' value='View Profile'>";
 																				echo "</form>";
 																		echo "</td>";
