@@ -53,7 +53,12 @@
             </div>
         </div>
     </div>
+<?php
 
+$projID=$_POST['projID'];
+
+
+?>
     <div class="employee-menu-area">
         <div class="container">
             <div class="row">
@@ -93,7 +98,7 @@
 															<select name = "contractType">
 																<option value="fullTime">Full-Time</option>
 																<option value="partTime">Part-Time</option>
-																<option value="contracter">Contrsctor</option>
+																
 															</select>
 														</div>
                                                         <div class="single-users-profile">
@@ -113,7 +118,7 @@
 															<input class="ptypes" id="street" name="salary" type="text">
 														</div>
 													
-														
+														<input type = "hidden" name = "projID" value ="<?php echo $projID?>">
 
                                                 <div class="user-profile-skrill">
                                                     <div class="user-skill-details">

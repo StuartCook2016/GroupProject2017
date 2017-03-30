@@ -7,11 +7,12 @@ $password = "password";
 $dbname = "jrg2";
 
 $username=$_POST['username'];
+$projID=$_POST['projID'];
 $jobTitle=$_POST['jobTitle'];
 $startDate=$_POST['startDate'];
 $endDate=$_POST['endDate'];
-$doorNumber=$_POST['contractType'];
-$street=$_POST['salary'];
+$contractType=$_POST['contractType'];
+$salary=$_POST['salary'];
 
 
 
@@ -22,14 +23,14 @@ try {
 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-	if($username = NULL)
+	if(strcmp($username,"") == 0)
 	{
     //Insert Job
-    $sql = "INSERT INTO job (jobID, projID, username, title, contractType, startDate, endDate, salary, details) VALUES ('NULL', '$username', '$projectName', '$startDate', '$endDate', 'N', '$doorNumber', '$street', '$city', '$postcode', '$projectLocation', 'Testing')";
+    $sql = "INSERT INTO job (jobID, projID, username, title, contractType, startDate, endDate, salary, details) VALUES ('NULL', '$projID', 'NULL', '$jobTitle', '$contractType', '$startDate', '$endDate', '$salary', 'Testing')";
 	}
 	else
 	{
-	 $sql = "INSERT INTO job (jobID, projID, username, title, contractType, startDate, endDate, salary, details) VALUES ('NULL', '$username', '$projectName', '$startDate', '$endDate', 'N', '$doorNumber', '$street', '$city', '$postcode', '$projectLocation', 'Testing')";	
+	 $sql = "INSERT INTO job (jobID, projID, username, title, contractType, startDate, endDate, salary, details) VALUES ('NULL', '$projID', '$username', '$jobTitle', '$contractType', '$startDate', '$endDate', '$salary', 'Testing')";	
 	}
 	
 
