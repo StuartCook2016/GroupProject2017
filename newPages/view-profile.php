@@ -128,11 +128,11 @@
 			</nav>		
 		</div>
 		<?php
-
-			$username = $POST["chosenUsername"];
+			//var_dump($_POST);
+			$username = $_POST["chosenUsername"];
 
 			# Run the query, store result in a string and store number of rows returned 
-			$result= mysqli_query($con,"SELECT `firstName`, `lastName`, `emailAddress`, `contactNumber`, `city`, `country`,`additionalInfo` FROM employee WHERE username='$username'") or die("Error: ".mysqli_error($con));
+			$result= mysqli_query($conn,"SELECT `firstName`, `lastName`, `emailAddress`, `contactNumber`, `city`, `country`,`additionalInfo` FROM employee WHERE username='$username'") or die("Error: ".mysqli_error($con));
 		  
 			 
 			// Return the number of rows in result set
@@ -203,7 +203,7 @@
 																				
 																				<?php
 																					$skillsQuery = "SELECT skillName, yearsOfXP FROM employeeskills WHERE username='" . $username . "'";
-																					$resultSkillsQuery = $con->query($skillsQuery);
+																					$resultSkillsQuery = $conn->query($skillsQuery);
 																					
 																					//if there are results
 																					if($resultSkillsQuery->num_rows > 0) {
@@ -247,7 +247,7 @@
 																									. "WHERE p.projID = j.projID "
 																									. "AND j.username = '" . $username . "' "
 																									. "AND p.finished = 'Y'";
-																					$resultProjectsQuery = $con->query($projectsQuery);
+																					$resultProjectsQuery = $conn->query($projectsQuery);
 																					
 																					//if there are results
 																					if($resultProjectsQuery->num_rows > 0) {
