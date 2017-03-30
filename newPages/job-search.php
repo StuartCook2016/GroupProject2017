@@ -445,7 +445,7 @@
 														$sql = "";
 														
 														//Check if all required POST variables are set and not empty
-														if(isset($_POST)) {
+														if(isset($_POST['jobTitle'])) {
 															
 														
 															$jobTitle = $_POST["jobTitle"];
