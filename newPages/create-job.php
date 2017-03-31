@@ -13,12 +13,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Create Project</title>
+        <title>Create Job</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/default.css" type="text/css">
         <link href="style.css" rel="stylesheet">
-		<link href="style2.css" rel="stylesheet"> 
+		<link href="style2.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet"> 
@@ -107,7 +108,7 @@
 										echo "</form>";
 										echo "<form class='navbar-form navbar-left' name='searchEmployeeForm' action='search-employee.php' method='post'>";
 											echo "<input type='submit' class='btn btn-default' name='searchEmployee' value='Search For Employee'>";
-										echo "</form>";
+										echo "</form>";	
 									} else {
 									}										
 								} else {
@@ -127,80 +128,87 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
+    
+<?php
+
+$projID=$_POST['projID'];
+
+
+?>
 		<div class="employee-menu-area">
 			<div class="container">
 				<div class="row">
 					<div class="main-employee-menu clearfix">
 						<div class="col-md-12 col-sm-12">
-							<div class="employee-menu">
+							<div class="employee-menu">                           
 								<!-- Tab panes -->
-								<div class="tab-content">
-									<div role="tabpanel" class="tab-pane active" id="employee-view">
+								<div class="tab-content">                                
+									<div role="tabpanel" class="tab-pane active" id="manager-menu">
 										<div class="employee-profile-details">
 											<div class="single-employee-profile">
-												<form name = "frm10" method = "post" action = "createdProject.php">
+												<form name = "frm10" method = "post" action = "created-job.php">
 													<div class="user-profile-details">
 														<div class="users-profiles">
 															<div class="single-users-profile">
 															<!-- project name-->
-																<label for="pname">Project Name:</label>
-																<input class="ptypes" id="ptype" name="projectName" type="text">
+																<label for="pname">Job Title:</label>
+																<input class="ptypes" id="ptype" name="jobTitle" type="text">
 															</div>
 															<div class="single-users-profile">
-																<label for="plocation">Door Number:</label>
-																<input class="ptypes" id="doorNumber" name="doorNumber" type="text">
+															<!-- project name-->
+																<label for="pname">Username:</label>
+																<input class="ptypes" id="ptype" name="username" type="text">
 															</div>
+															 <!--location and skill combo box-->
 															<div class="single-users-profile">
-																<label for="plocation">Street:</label>
-																<input class="ptypes" id="street" name="street" type="text">
+																<label for="plocation">Contract Type:</label>
+																<select name = "contractType">
+																	<option value="Full-Time">Full-Time</option>
+																	<option value="Part-Time">Part-Time</option>																
+																</select>
 															</div>
-															<div class="single-users-profile">
-																<label for="plocation">City:</label>
-																<input class="ptypes" id="city" name="city" type="text">
-															</div>														
 														</div>
-														<div class="users-profiles project-name">
+														<div class="users-profiles">
 															<div class="single-users-profile">
 															<!-- start date uses jquery for date picker already-->
 																<label for="pname">Start Date:</label>
-																<input id="datepicker-example1" class="pnames" id="pname" name="startDate" placeholder="YYYY/MM/DD" type="text">
+																<input id="datepicker-example1" class="pnames" id="pname" name="startDate" type="text">
 															</div>
+															   
 															<div class="single-users-profile">
 																<label for="p-type">End Date:</label>
-																<input id="datepicker-example2" class="p-types" id="p-type" name="endDate" placeholder="YYYY/MM/DD" type="text">
-															</div>														
+																<input id="datepicker-example2" class="p-types" id="p-type" name="endDate" type="text">
+															</div>                                                   
 															<div class="single-users-profile">
-																<label for="plocation">Country:</label>
-																<input class="ptypes" id="pLocation" name="projectLocation" type="text">
+																<label for="plocation">Salary:</label>
+																<input class="ptypes" id="street" name="salary" type="text">
 															</div>
-															<div class="single-users-profile">
-																<label for="plocation">Postcode:</label>
-																<input class="ptypes" id="postcode" name="postcode" type="text">
-															</div>
+														
+															<input type = "hidden" name = "projID" value ="<?php echo $projID?>">
 														</div>
 													</div>
 													<div class="user-profile-skrill">
 														<div class="user-skill-details">
-															<textarea class="pprojects" id="pproject" name="details" placeholder="Additional Project Information"></textarea>
+															<textarea class="pprojects" id="pproject" name="details" ></textarea>
 														</div>
 													</div>
 													<div class="search-button">
 														<!--this is for submitting the changes -->
-														<input type="submit" name ="Submit" value ="Submit Project Changes">																			
-													</div>
-												</form>
+														<input type="submit" name ="Submit" value ="Submit Job Changes">																			
+													</div>														
+												</form>	   
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							</div>                       
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-												
-        <div class='footer-dark'>
+
+		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
 					<div class='row'>
@@ -208,10 +216,13 @@
 					</div>
 				</div>
 			</footer>
-		</div>
+		</div>   
+
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/zebra_datepicker.js"></script>
+        <script type="text/javascript" src="js/core.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
