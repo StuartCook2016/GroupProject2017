@@ -158,6 +158,18 @@
 										<div class="col-md-12 col-sm-12">
 											<div class="employee-menu">
 												<!-- Tab panes -->
+													<h2 class="page-headers">Your Profile</h2>													
+													</br>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="main-employee-menu clearfix">
+										<div class="col-md-12 col-sm-12">
+											<div class="employee-menu">
+												<!-- Tab panes -->
 												<div class="tab-content">
 													<div role="tabpanel" class="tab-pane active" id="employee-view">
 														<div class="employee-profile-details">
