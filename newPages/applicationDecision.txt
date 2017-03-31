@@ -1,0 +1,16 @@
+Accepted:
+	Accept -> Add the employee to the job
+				and remove application
+	Decline -> remove application
+	
+Pending
+
+Unsuccsessful:
+	Remove -> remove application
+	
+if status = accepted && decision = accept {
+	add the employee to the job
+	update but set username to be session username
+}
+
+remove the application

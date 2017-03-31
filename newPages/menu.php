@@ -42,7 +42,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,7 +65,7 @@
 									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
-									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
+									<form class='navbar-form navbar-left' name='applicationsForm' action='applications.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='applications' value='Applications'></li>
 									</form>
 								</ul>
@@ -188,6 +188,48 @@
 						<div class='panel panel-default'>
 							<div class='panel-heading'>Your Messages</div>
 							<div class='panel-body'>
+								<div class='single-employee-form'>
+								
+								
+									<table align="center">
+										<tr>
+											<th>From</th>
+											<th>Date Sent</th>
+											<th>Message</th>
+										</tr>
+										
+										<?php
+										
+											$messagesQuery="SELECT * FROM messages "
+															. "WHERE receiverUsername='" . $username . "' "
+															. "ORDER BY dateSent LIMIT 5";
+											
+											$resultMessagesQuery = $conn->query($messagesQuery);
+											
+											if($resultMessagesQuery->num_rows > 0) {
+												
+												$activeFlag = 0;
+												while($rowMessagesQuery = $resultMessagesQuery->fetch_assoc()) {
+													
+													//Used to display alternating colour in table rows
+													if($activeFlag % 2 == 0) {
+														echo "<tr>";
+													} else {
+														echo "<tr class='active'>";
+													}
+													
+													echo "<td>" . $rowMessagesQuery['senderUsername'] . "</td>";
+													echo "<td>" . $rowMessagesQuery['dateSent'] . "</td>";
+													echo "<td>" . $rowMessagesQuery['message'] . "</td>";
+													
+													echo "</tr>";
+													
+													$activeFlag++;
+												}
+											}
+										?>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -344,7 +344,7 @@
 																</div>
 																</br>
 																</br>
-																<div single-employee-form>
+																<div class="single-employee-form">
 																	<label for="broadcast">Broadcast a message</label>
 																	<form action="messageBroadcast.php" method="post">
 																		<?php			
