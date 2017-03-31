@@ -65,7 +65,7 @@
 									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
-									<form class='navbar-form navbar-left' name='applicationsForm' action='applications.php' method='post'>										
+									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='applications' value='Applications'></li>
 									</form>
 								</ul>
