@@ -42,7 +42,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -140,7 +140,7 @@
 									
 									echo "<div class='user-profile-details'>";
 									
-									$jobID = $_POST["jobID"];								
+									$jobID = $_POST["jobID"];			
 												
 									$sql1 = "SELECT * FROM job WHERE jobID = " . $jobID;
 									$result1 = $conn->query($sql1);
@@ -203,6 +203,26 @@
 												echo "<input class='salary' id='salary' name='salary' type='text'
 													value='" . $row1['salary'] . "' readonly='true'>";
 											echo "</div>";
+											
+											//Check if the logged in user is the manager of this job
+											$managerQuery = "SELECT * FROM "
+															. "job AS j, projects AS p "
+															. "WHERE p.managerUsername = '" . $_SESSION['username'] . "' "
+															. "AND p.projID = j.projID "
+															. "AND j.jobID = " . $jobID;
+															
+											$resultManagerQuery = $conn->query($managerQuery);
+											
+											if($resultManagerQuery->num_rows > 0) {
+												echo "<div class='search-button'>";
+													echo "<form action='editJob.php' method='post'>";
+														echo "<input type='hidden' name='jobID' value='" . $jobID . "'>";
+														echo "<input type='submit' value='Edit Job'>";
+													echo "</form>";
+												echo "</div>";
+											}
+											
+											
 										echo "</div>";
 									echo "</div>";
 									echo "<div class='user-profile-details'>";
@@ -256,8 +276,6 @@
 										
 											
 											$rowVacantQuery = $resultVacantQuery->fetch_assoc();
-											
-											echo $rowVacantQuery['username'];
 											
 											if(strcasecmp($rowVacantQuery['username'], "") == 0) {
 												echo "<div class='search-button'>";
