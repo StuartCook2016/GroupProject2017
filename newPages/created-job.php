@@ -46,6 +46,6 @@
 	} catch(PDOException $e) {
 		echo $sql . "<br>" . $e->getMessage();
 	}
-		$_SESSION['projID'] = $projID;
-		header("Location:view-job.php");
+		$_SESSION['jobID'] = $jobID;
+		header("Location:view-project.php");
 ?>

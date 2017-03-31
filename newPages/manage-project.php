@@ -127,6 +127,82 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-		
+		<div class="employee-menu-area">
+			<div class="container">
+				<div class="row">
+					<div class="main-employee-menu clearfix">
+						<div class="col-md-12 col-sm-12">
+							<div class="employee-menu">
+								<!-- Tab panes -->
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="employee-view">
+										<div class="employee-profile-details">
+											<div class="single-employee-profile">
+												<div class="user-profile-skrill">
+													<div class="user-skill-details">
+														<h2>Managed Projects</h2>
+														<div class="single-employee-form">
+															<table>
+																<tr>
+																	<th>Project Name</th>
+																	<th>Start Date</th>
+																	<th>End Date</th>
+																	<th>City</th>
+																	<th>Country</th>
+																	<th>View</th>
+																</tr>
+																
+																<?php
+																	$username = $_SESSION['username'];
+																	
+																	$currentProjectsQuery = "SELECT * FROM "
+																							. "projects AS p "
+																							. "WHERE managerUsername='$username' "
+																							. "AND finished='N'";
+																	
+																	$resultProjectsQuery = $conn->query($currentProjectsQuery);
+																	
+																	$activeFlag = 0;
+																	//if there are results
+																	while($row = $resultProjectsQuery->fetch_assoc()) {
+																		
+																		//Used to display alternating colour in table rows
+																		if($activeFlag % 2 == 0) {
+																			echo "<tr>";
+																		} else {
+																			echo "<tr class='active'>";
+																		}
+																		
+																		echo "<td>" . $row['projName'] . "</td>";
+																		echo "<td>" . $row['startDate'] . "</td>";
+																		echo "<td>" . $row['endDate'] . "</td>";
+																		echo "<td>" . $row['city'] . "</td>";
+																		echo "<td>" . $row['country'] . "</td>";
+																		echo "<td>";
+																			echo "<form action='view-project.php' method='post'>";
+																				echo "<input type='hidden' name='projID' value='" . $row['projID'] . "'>";
+																				echo "<input type='submit' value='View'>";
+																			echo "</form>";
+																		echo "</td>";
+																		
+																		echo "</td>";
+																		
+																		$activeFlag++;
+																	}
+																?>
+															</table>	
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
