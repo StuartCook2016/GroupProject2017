@@ -47,5 +47,5 @@
 		echo $sql . "<br>" . $e->getMessage();
 	}
 		$_SESSION['projID'] = $projID;
-		header("Location:view-project.php");
+		header("Location:view-job.php");
 ?>

@@ -239,13 +239,9 @@
 																		</tr>
 																		
 																		<?php																							
-																			$employeeQuery = "SELECT t1.username, t2.title FROM "
-																							. "(SELECT j.username FROM job AS j, projects AS p WHERE j.projID=" . $projID . " AND j.projID=p.projID) t1 "
-																							. "INNER JOIN "
-																							. "(SELECT e.username, title FROM employee AS e, job AS j WHERE e.username=j.username) t2 "
-																							. "ON t1.username = t2.username";
+																			$employeeQuery = "SELECT e.username, title FROM employee AS e, job AS j WHERE e.username=j.username AND j.projID=" . $projID;
 																			$resultEmployeeQuery = $conn->query($employeeQuery);
-																			
+			
 																			//if there are results
 																			if($resultEmployeeQuery->num_rows > 0) {
 
