@@ -30,8 +30,7 @@
         <![endif]-->
     </head>
     <body>
-		<div class='header-area'>
-		
+		<div class='header-area'>		
 			<nav class='navbar navbar-default navbar-fixed-top'>
 				<div class='container-fluid'>
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -159,7 +158,8 @@
 															<div class="single-employee-profile">
 																<form name = "frm11" method = "post" action = "editedProject.php">
 																	<div class="user-profile-details">
-																		<div class="users-profiles project-name">
+																		<h2>Edit Project</h2>
+																		<div class="users-profiles">
 																			<div class="single-users-profile">
 																			<!-- project name-->
 																				<label for="pname">Project Name:</label>
@@ -232,7 +232,17 @@
 				}
 			}
 		?>	
-        
+ 
+		<div class='footer-dark'>
+			<footer>
+				<div class='container'>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
+					</div>
+				</div>
+			</footer>
+		</div> 
+		
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>

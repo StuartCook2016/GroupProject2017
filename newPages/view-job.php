@@ -139,7 +139,8 @@
 								<?php													
 									
 									echo "<div class='user-profile-details'>";
-									
+											echo "<h2>View Job</h2>";
+											
 									$jobID = $_POST["jobID"];			
 												
 									$sql1 = "SELECT * FROM job WHERE jobID = " . $jobID;

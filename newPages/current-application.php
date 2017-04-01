@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>View Applications</title>
+        <title>Your Applications</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -140,6 +140,7 @@
 									<div role="tabpanel" class="tab-pane active" id="employee-view">
 										<div class="employee-profile-details">
 											<div class="single-employee-profile">
+												<h2>Your Applications</h2>
 												<div class="user-profile-skrill">
 													<div class="user-skill-details">
 														<div class="single-employee-form">

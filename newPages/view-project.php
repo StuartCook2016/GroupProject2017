@@ -159,6 +159,7 @@
 												<div class="employee-profile-details">
 													<div class="single-employee-profile">
 														<div class="user-profile-details">
+															<h2>View Project</h2>
 															<div class="users-profiles project-name">
 																<!-- Project Name -->
 																<div class="single-users-profile">

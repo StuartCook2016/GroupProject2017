@@ -140,6 +140,7 @@
 											<div class="single-employee-profile">
 												<form name = "frm10" method = "post" action = "createdProject.php">
 													<div class="user-profile-details">
+														<h2>Create Project</h2>
 														<div class="users-profiles">
 															<div class="single-users-profile">
 															<!-- project name-->

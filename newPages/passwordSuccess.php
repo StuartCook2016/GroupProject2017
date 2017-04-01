@@ -41,7 +41,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -126,12 +126,13 @@
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
 			</nav>		
-		</div>
+		</div>			
 		<div class="login-area">
 			<div class="container">				
 				<div class="row">
 					<div class="col-md-4 col-sm-4"></div>                
-					<div class="col-md-6 col-sm-6">                            
+					<div class="col-md-6 col-sm-6"> 
+						<h2>Change Password</h2>
 						<p>Password has been changed successfully</p>
 					</div>
 					<div class="col-md-2 col-sm-2"></div>
@@ -142,10 +143,8 @@
 		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
-					<div class='row'>	
-						<div class='copyright'>
-							<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
-						</div>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
 					</div>
 				</div>
 			</footer>
