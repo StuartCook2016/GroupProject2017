@@ -148,7 +148,8 @@ $projID=$_POST['projID'];
 											<div class="single-employee-profile">
 												<form name = "frm10" method = "post" action = "created-job.php">
 													<div class="user-profile-details">
-														<div class="users-profiles">
+														<h2>Create Job</h2>	
+														<div class="users-profiles">																													
 															<div class="single-users-profile">
 															<!-- project name-->
 																<label for="pname">Job Title:</label>
@@ -216,7 +217,7 @@ $projID=$_POST['projID'];
 					</div>
 				</div>
 			</footer>
-		</div>   
+		</div>
 
 
         <script src="js/jquery.min.js"></script>
