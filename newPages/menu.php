@@ -132,7 +132,8 @@
 		<div class='employee-menu-area'>
 			<div class='container'>
 				<div class='row'>
-					<div class='col-sm-5'>
+					<h2>Dashboard</h2>
+					<div class='col-sm-5'>						
 						<div class='panel panel-default'>
 							<div class='panel-heading'>Your Applications</div>
 							<div class='panel-body'>

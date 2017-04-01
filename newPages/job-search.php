@@ -41,7 +41,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -127,7 +127,6 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-
 		<div class="employee-menu-area">
 			<div class="container">
 				<div class="row">
@@ -151,6 +150,7 @@
 										}
 									?>
 										<div role='tabpanel' tab-pane active" id='employee-view'>
+											<h2>Search for Jobs</h2>
 									<?php
 											echo "<div class='col-md-3 col-sm-3'>";
 												echo "<div class='left-search-area'>";

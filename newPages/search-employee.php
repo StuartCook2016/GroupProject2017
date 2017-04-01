@@ -41,7 +41,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -84,6 +84,10 @@
 									die("Connection to MySQL failed %s </br>" . $conn->connect_error);
 								}
 								
+								if(!isset($_SESSION["username"]) || empty($_SESSION["username"])) {									
+									die("You do not have permission to access this page");					
+								}
+								
 								$username = $_SESSION["username"];
 								
 								$positionQuery = "SELECT position FROM accdetails AS a WHERE a.username = '" . $username . "'";
@@ -123,7 +127,6 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-
 		<div class='employee-menu-area'>
 			<div class='container'>
 				<div class='row'>
@@ -133,6 +136,7 @@
 								<!-- Tab panes -->
 								<div class ='tab-content'>
 									<div role='tabpanel' id='manager-view'>
+										<h2>Search For Employee</h2>
 										<div class='col-md-3 col-sm-3'>
 											<div class='left-search-area'>
 												<form action='search-employee.php' method='post'>
