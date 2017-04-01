@@ -264,13 +264,7 @@
 														
 														//Check if all required POST variables are set and not empty
 														//Cannot perform empty check on first 3 since they can be empty
-														if(isset($_POST['employeeFName']) &&
-															isset($_POST['employeeLName']) &&
-															isset($_POST['employeeUsername']) &&
-															isset($_POST['city']) && !empty($_POST['city']) &&
-															isset($_POST['country']) && !empty($_POST['country']) &&
-															isset($_POST['skillReq']) && !empty($_POST['skillReq']) &&
-															isset($_POST['empProject']) && !empty($_POST['empProject'])) {
+														if(isset($_POST['employeeFName'])) {
 															//location check needs to be added to above condition
 														
 															$employeeFName = $_POST['employeeFName'];
@@ -281,7 +275,7 @@
 															$skillReq = $_POST['skillReq'];
 															$empProject = $_POST['empProject'];
 															
-															$sql = "SELECT * FROM employee AS e, job AS j, projects AS p WHERE 
+															$sql = "SELECT e.username, e.firstName, e.lastName, e.emailAddress, e.contactNumber, j.jobID FROM employee AS e, job AS j, projects AS p WHERE 
 																e.username = j.username AND j.projID = p.projID";
 															
 															//if the user has input a first name 
@@ -320,10 +314,12 @@
 															//if the skill required specified is not any
 															if(strcasecmp($skillReq, 'any') != 0) {									
 																//Query becomes a join if user requests a specific skill
-																$sql = "SELECT * FROM ( " . $sql . ") t1 INNER JOIN ( SELECT * FROM jobskills AS s WHERE s.skillName = '" . $skillReq . "') t2 ON t1.jobID = t2.jobID";
+																$sql = "SELECT t1.username, t1.firstName, t1.lastName, t1.emailAddress, t1.contactNumber FROM "
+																		. "( " . $sql . ") t1 " 
+																		. "INNER JOIN " 
+																		. "( SELECT s.jobID FROM jobskills AS s WHERE s.skillName = '" . $skillReq . "') t2 "
+																		. "ON t1.jobID = t2.jobID";
 															}
-															
-															
 															
 															
 														//The POST variables are not set	
