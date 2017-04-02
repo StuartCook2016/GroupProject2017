@@ -31,7 +31,6 @@
     </head>
     <body>
 		<div class='header-area'>
-		
 			<nav class='navbar navbar-default navbar-fixed-top'>
 				<div class='container-fluid'>
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -62,7 +61,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -127,8 +126,7 @@
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
 			</nav>		
-		</div>
-		
+		</div>		
 		<?php
 			$username = $_SESSION["username"];
 
@@ -159,7 +157,8 @@
 															<div class="single-employee-profile">
 																<form name = "frm11" method = "post" action = "editedProject.php">
 																	<div class="user-profile-details">
-																		<div class="users-profiles project-name">
+																		<h2>Edit Project</h2>
+																		<div class="users-profiles">
 																			<div class="single-users-profile">
 																			<!-- project name-->
 																				<label for="pname">Project Name:</label>
@@ -232,7 +231,17 @@
 				}
 			}
 		?>	
-        
+ 
+		<div class='footer-dark'>
+			<footer>
+				<div class='container'>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
+					</div>
+				</div>
+			</footer>
+		</div> 
+		
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>

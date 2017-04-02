@@ -53,5 +53,5 @@ catch(PDOException $e)
     }
 	
 	$_SESSION['jobID'] = $jobID;
-	header("Location:editJob.php");
+	header("Location:view-job.php");
 ?>

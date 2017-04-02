@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Edit Profile</title>
+        <title>Manange  your Projects</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -61,7 +61,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -140,7 +140,7 @@
 											<div class="single-employee-profile">
 												<div class="user-profile-skrill">
 													<div class="user-skill-details">
-														<h2>Managed Projects</h2>
+														<h2>Manage Your Projects</h2>
 														<div class="single-employee-form">
 															<table>
 																<tr>
@@ -204,5 +204,21 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class='footer-dark'>
+			<footer>
+				<div class='container'>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+		<script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/zebra_datepicker.js"></script>
+        <script type="text/javascript" src="js/core.js"></script>
+        <script src="js/main.js"></script>
 	</body>
 </html>

@@ -13,12 +13,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Change Password</title>
+        <title>Your Messages</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
-        <link href="style2.css" rel="stylesheet">
+		<link href="style2.css" rel="stylesheet"> 
         <link href="css/responsive.css" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet"> 
@@ -126,20 +126,30 @@
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
 			</nav>		
-		</div>		
-		<div class="login-area">
-			<div class="container">				
+		</div>
+		
+		<div class="employee-menu-area">
+			<div class="container">
 				<div class="row">
-					<div class="col-md-4 col-sm-4"></div>                
-					<div class="col-md-6 col-sm-6"> 
-						<h2>Change Password</h2>
-						<p>Password has been changed successfully</p>
+					<div class="main-employee-menu clearfix">
+						<div class="col-md-12 col-sm-12">
+							<div class="employee-menu">
+								<div class='user-profile-details'>
+									<h2>Your Messages</h2>								
+									<div class='users-profiles project-name'>
+										<div class='single-users-profile'>
+											<p>Currently under development.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-2 col-sm-2"></div>
-				</div>				
+				</div>
 			</div>
 		</div>
-        
+									
+		
 		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
@@ -149,7 +159,7 @@
 				</div>
 			</footer>
 		</div>
-		
+
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>

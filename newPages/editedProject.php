@@ -49,5 +49,5 @@ catch(PDOException $e)
     echo $sql . "<br>" . $e->getMessage();
     }
 
-	header("Location:managed-projects.php");
+	header("Location:manage-project.php");
 ?>

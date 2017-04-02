@@ -77,7 +77,7 @@ catch(PDOException $e)
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -167,7 +167,8 @@ catch(PDOException $e)
 			<div class="container">				
 				<div class="row">
 					<div class="col-md-4 col-sm-4"></div>                
-					<div class="col-md-6 col-sm-6">                            
+					<div class="col-md-6 col-sm-6"> 
+						<h2>Edit Profile</h2>
 						<p>Profile has been updated successfully</p>
 						<p><a href="your-profile.php">Click here</a> to return to your profile</p>
 					</div>

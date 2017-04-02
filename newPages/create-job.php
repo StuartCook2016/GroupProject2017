@@ -62,7 +62,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -148,7 +148,8 @@ $projID=$_POST['projID'];
 											<div class="single-employee-profile">
 												<form name = "frm10" method = "post" action = "created-job.php">
 													<div class="user-profile-details">
-														<div class="users-profiles">
+														<h2>Create Job</h2>	
+														<div class="users-profiles">																													
 															<div class="single-users-profile">
 															<!-- project name-->
 																<label for="pname">Job Title:</label>
@@ -216,7 +217,7 @@ $projID=$_POST['projID'];
 					</div>
 				</div>
 			</footer>
-		</div>   
+		</div>
 
 
         <script src="js/jquery.min.js"></script>

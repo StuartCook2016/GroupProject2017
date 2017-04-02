@@ -41,7 +41,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,7 +61,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -82,6 +82,10 @@
 								//Check connection
 								if($conn->connect_error) {
 									die("Connection to MySQL failed %s </br>" . $conn->connect_error);
+								}
+								
+								if(!isset($_SESSION["username"]) || empty($_SESSION["username"])) {									
+									die("You do not have permission to access this page");					
 								}
 								
 								$username = $_SESSION["username"];
@@ -123,7 +127,6 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-
 		<div class='employee-menu-area'>
 			<div class='container'>
 				<div class='row'>
@@ -133,6 +136,7 @@
 								<!-- Tab panes -->
 								<div class ='tab-content'>
 									<div role='tabpanel' id='manager-view'>
+										<h2>Search For Employee</h2>
 										<div class='col-md-3 col-sm-3'>
 											<div class='left-search-area'>
 												<form action='search-employee.php' method='post'>

@@ -41,7 +41,7 @@
 							<span class='icon-bar'></span>
 							<span class='icon-bar'></span>
 						</button>
-						<a class='navbar-brand' href='menu.php'>Brand</a>
+						<a class='navbar-brand' href='menu.php'>HOME</a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,7 +61,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -131,8 +131,9 @@
 			<div class="container">
 				<form action='checkPass.php' method='post'>
 					<div class="row">
-						<div class="col-md-4 col-sm-4"></div>                
-						<div class="col-md-6 col-sm-6">                            
+						<div class="col-md-4 col-sm-4"></div>   						
+						<div class="col-md-6 col-sm-6">          
+							<h2> Change Password </h2>
 							<!--user enters username and password-->
 							<div class="login-details">
 								<!--fields for new password-->
@@ -162,10 +163,8 @@
 		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
-					<div class='row'>	
-						<div class='copyright'>
-							<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
-						</div>
+					<div class='row'>
+						<a href='http://www2.macs.hw.ac.uk/~cdb3/Aegis%20Solutions/'>Powered by Aegis Solutions © 2016</a>
 					</div>
 				</div>
 			</footer>

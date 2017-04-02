@@ -62,7 +62,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -128,11 +128,11 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-		
 		<div class='employee-menu-area'>
 			<div class='container'>
 				<div class='row'>
-					<div class='col-sm-5'>
+					<h2>Dashboard</h2>
+					<div class='col-sm-5'>						
 						<div class='panel panel-default'>
 							<div class='panel-heading'>Your Applications</div>
 							<div class='panel-body'>

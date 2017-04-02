@@ -61,7 +61,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -152,19 +152,7 @@
 					if (mysqli_num_rows($result) != 0) {
 		?>
 						<div class="employee-menu-area">
-							<div class="container">
-								<div class="row">
-									<div class="main-employee-menu clearfix">
-										<div class="col-md-12 col-sm-12">
-											<div class="employee-menu">
-												<!-- Tab panes -->
-													<h2 class="page-headers">Your Profile</h2>													
-													</br>
-												
-											</div>
-										</div>
-									</div>
-								</div>
+							<div class="container">													
 								<div class="row">
 									<div class="main-employee-menu clearfix">
 										<div class="col-md-12 col-sm-12">
@@ -175,6 +163,7 @@
 														<div class="employee-profile-details">
 															<div class="single-employee-profile">
 																<div class="user-profile-details">
+																	<h2>Your Profile</h2>
 																	<div class="users-profiles project-name">
 																		<!-- first name of employee-->
 																		<div class="single-users-profile">

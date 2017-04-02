@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>View Applications</title>
+        <title>Your Applications</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -128,7 +128,6 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-
 		<div class="employee-menu-area">
 			<div class="container">
 				<div class="row">
@@ -140,6 +139,7 @@
 									<div role="tabpanel" class="tab-pane active" id="employee-view">
 										<div class="employee-profile-details">
 											<div class="single-employee-profile">
+												<h2>Your Applications</h2>
 												<div class="user-profile-skrill">
 													<div class="user-skill-details">
 														<div class="single-employee-form">

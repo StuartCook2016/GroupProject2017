@@ -34,13 +34,15 @@
 		$resultEmployeeQuery = $conn->query($addEmployeeQuery);	
 		//remove the application
 		$removeApplication = "DELETE FROM applications WHERE jobID=$jobID AND username='$username'";
+		$resultremoveApplication = $conn->query($removeApplication);	
 		echo $removeApplication;
 	} else {
 		//remove the application
 		$removeApplication = "DELETE FROM applications WHERE jobID=$jobID AND username='$username'";
+		$resultremoveApplication = $conn->query($removeApplication);
 		echo $removeApplication;
 	}
 	
 	
-	
+	header("Location:current-application.php");
 ?>
