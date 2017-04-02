@@ -126,7 +126,7 @@
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
 			</nav>		
-		</div>			
+		</div>		
 		<div class="login-area">
 			<div class="container">				
 				<div class="row">
