@@ -332,7 +332,7 @@
 																	//If there are post variables then remember the search parameters
 																	if(isset($_POST["minSalary"])) {
 																		echo "<input id='minSalary' name='minSalary' step='1000' type='number'
-																		value='" . $_POST["minSalary"] . "' min='" . $_POST["minSalary"] . "'>";																
+																		value='" . $_POST["minSalary"] . "' min='" . $row["salary"] . "'>";																
 																	} else {																
 																		echo "<input id='minSalary' name='minSalary' step='1000' type='number'
 																		value='" . $row['salary'] . "' min='" . $row['salary'] . "'>";
@@ -345,10 +345,10 @@
 																	//If there are post variables then remember the search parameters
 																	if(isset($_POST["maxSalary"])) {
 																		echo "<input id='maxSalary' name='maxSalary' step='1000' type='number'
-																		value='" . $_POST["maxSalary"] . "' min='" . $_POST["maxSalary"] . "'>";																
+																		value='" . $_POST["maxSalary"] . "' max='" . $row['salary'] . "'>";																
 																	} else {																
 																		echo "<input id='maxSalary' name='maxSalary' step='1000' type='number'
-																		value='" . $row['salary'] . "' min='" . $row['salary'] . "'>";
+																		value='" . $row['salary'] . "' max='" . $row['salary'] . "'>";
 																	}
 																}									
 															echo "</div>";
