@@ -30,7 +30,7 @@
         <![endif]-->
     </head>
     <body>
-		<div class='header-area'>		
+		<div class='header-area'>
 			<nav class='navbar navbar-default navbar-fixed-top'>
 				<div class='container-fluid'>
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -126,8 +126,7 @@
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
 			</nav>		
-		</div>
-		
+		</div>		
 		<?php
 			$username = $_SESSION["username"];
 

@@ -128,7 +128,6 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-
 		<div class="employee-menu-area">
 			<div class="container">
 				<div class="row">

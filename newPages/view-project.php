@@ -128,7 +128,6 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
-
 		<?php
 			
 			//check projID has been posted

@@ -13,7 +13,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Create Project</title>
+        <title>Current Projects</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -127,70 +127,18 @@
 				</div><!-- /.container-fluid -->
 			</nav>		
 		</div>
+		
 		<div class="employee-menu-area">
 			<div class="container">
 				<div class="row">
 					<div class="main-employee-menu clearfix">
 						<div class="col-md-12 col-sm-12">
 							<div class="employee-menu">
-								<!-- Tab panes -->
-								<div class="tab-content">
-									<div role="tabpanel" class="tab-pane active" id="employee-view">
-										<div class="employee-profile-details">
-											<div class="single-employee-profile">
-												<form name = "frm10" method = "post" action = "createdProject.php">
-													<div class="user-profile-details">
-														<h2>Create Project</h2>
-														<div class="users-profiles">
-															<div class="single-users-profile">
-															<!-- project name-->
-																<label for="pname">Project Name:</label>
-																<input class="ptypes" id="ptype" name="projectName" type="text">
-															</div>
-															<div class="single-users-profile">
-																<label for="plocation">Door Number:</label>
-																<input class="ptypes" id="doorNumber" name="doorNumber" type="text">
-															</div>
-															<div class="single-users-profile">
-																<label for="plocation">Street:</label>
-																<input class="ptypes" id="street" name="street" type="text">
-															</div>
-															<div class="single-users-profile">
-																<label for="plocation">City:</label>
-																<input class="ptypes" id="city" name="city" type="text">
-															</div>														
-														</div>
-														<div class="users-profiles project-name">
-															<div class="single-users-profile">
-															<!-- start date uses jquery for date picker already-->
-																<label for="pname">Start Date:</label>
-																<input id="datepicker-example1" class="pnames" id="pname" name="startDate" placeholder="YYYY/MM/DD" type="text">
-															</div>
-															<div class="single-users-profile">
-																<label for="p-type">End Date:</label>
-																<input id="datepicker-example2" class="p-types" id="p-type" name="endDate" placeholder="YYYY/MM/DD" type="text">
-															</div>														
-															<div class="single-users-profile">
-																<label for="plocation">Country:</label>
-																<input class="ptypes" id="pLocation" name="projectLocation" type="text">
-															</div>
-															<div class="single-users-profile">
-																<label for="plocation">Postcode:</label>
-																<input class="ptypes" id="postcode" name="postcode" type="text">
-															</div>
-														</div>
-													</div>
-													<div class="user-profile-skrill">
-														<div class="user-skill-details">
-															<textarea class="pprojects" id="pproject" name="details" placeholder="Additional Project Information"></textarea>
-														</div>
-													</div>
-													<div class="search-button">
-														<!--this is for submitting the changes -->
-														<input type="submit" name ="Submit" value ="Submit Project Changes">																			
-													</div>
-												</form>
-											</div>
+								<div class='user-profile-details'>
+									<h2>Current Projects</h2>								
+									<div class='users-profiles project-name'>
+										<div class='single-users-profile'>
+											<p>Currently under development.</p>
 										</div>
 									</div>
 								</div>
@@ -200,8 +148,9 @@
 				</div>
 			</div>
 		</div>
-												
-        <div class='footer-dark'>
+									
+		
+		<div class='footer-dark'>
 			<footer>
 				<div class='container'>
 					<div class='row'>
