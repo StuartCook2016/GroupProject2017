@@ -61,7 +61,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -405,7 +405,7 @@
 																	$row = $resultEndMin->fetch_assoc();
 																	echo "<p><b>Ending between these dates:</b></p>";
 																	//set end date to earliest end date in db
-																	echo "<label for='datepicker-example3''>End Date:</label>";
+																	echo "<label for='datepicker-example3'>End Date:</label>";
 																	//If there are post variables then remember the search parameters
 																	if(isset($_POST["end-date1"])) {
 																		echo "<input id='datepicker-example3' class='edates' name='end-date1' type='text'
@@ -418,7 +418,7 @@
 																	
 																	$row = $resultEndMax->fetch_assoc();
 																	//set end date to latest end date in db
-																	echo "<label for='datepicker-example4''>End Date:</label>";
+																	echo "<label for='datepicker-example4'>End Date:</label>";
 																	//If there are post variables then remember the search parameters
 																	if(isset($_POST["end-date2"])) {
 																		echo "<input id='datepicker-example4' class='edates' name='end-date2' type='text'

@@ -62,7 +62,7 @@
 							<li class='dropdown'>
 								<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>Updates<span class='caret'></span></a>
 								<ul class='dropdown-menu'>
-									<form class='navbar-form navbar-left' name='messagesForm' action='' method='post'>										
+									<form class='navbar-form navbar-left' name='messagesForm' action='your-messages.php' method='post'>										
 										<li><input type='submit' class='btn btn-default' name='messages' value='Messages'></li>
 									</form>
 									<form class='navbar-form navbar-left' name='applicationsForm' action='current-application.php' method='post'>										
@@ -138,7 +138,13 @@
 									<h2>View Job</h2>
 									
 									<?php
-									$jobID = $_POST["jobID"];
+									//check jobID has been posted
+									if(isset($_POST['jobID']) && !empty($_POST['jobID'])) {
+										$jobID = $_POST["jobID"];
+									} else {
+										//jobID is in SESSION
+										$jobID = $_SESSION["jobID"];
+									}
 									
 									$jobsQuery = "SELECT * FROM job WHERE jobID = " . $jobID;
 									$resultJobsQuery = $conn->query($jobsQuery);
