@@ -138,7 +138,13 @@
 									<h2>View Job</h2>
 									
 									<?php
-									$jobID = $_POST["jobID"];
+									//check jobID has been posted
+									if(isset($_POST['jobID']) && !empty($_POST['jobID'])) {
+										$jobID = $_POST["jobID"];
+									} else {
+										//jobID is in SESSION
+										$jobID = $_SESSION["jobID"];
+									}
 									
 									$jobsQuery = "SELECT * FROM job WHERE jobID = " . $jobID;
 									$resultJobsQuery = $conn->query($jobsQuery);
